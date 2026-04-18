@@ -441,6 +441,44 @@
     color: white;
   }
 
+
+  /* Compact sections: collapsible h3 + content */
+  .cut-card h3 {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-left: 20px;
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: var(--primary);
+  }
+  .cut-card h3::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    transition: transform 0.15s;
+    display: inline-block;
+    width: 14px;
+  }
+  .cut-card h3.open::before { transform: rotate(90deg); }
+  .cut-card h3 + ul,
+  .cut-card h3 + .important,
+  .cut-card h3 + .important + ul { display: none; }
+  .cut-card h3.open + ul,
+  .cut-card h3.open + .important,
+  .cut-card h3.open + .important + ul { display: block; }
+  .expand-all-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+  }
 </style>
 </head>
 <body>
@@ -471,7 +509,7 @@
 <!-- ============================================= -->
 
 <!-- ========== PORK ========== -->
-<h2 id="pork" class="section-title pork">PORK CUTS</h2>
+<button id="expandAllBtn" class="expand-all-btn" data-expand="Expand All" data-collapse="Collapse All">Expand All</button><h2 id="pork" class="section-title pork">PORK CUTS</h2>
 
 <!-- Ogyeopsal -->
 <div class="cut-card pork">
@@ -1971,6 +2009,29 @@ document.getElementById('checklistSearch').addEventListener('input', function() 
       else card.prepend(container);
     }
   });
+})();
+</script>
+
+
+<script>
+(function() {
+  // Make all h3 inside .cut-card toggle their siblings
+  document.querySelectorAll('.cut-card h3').forEach(h => {
+    h.addEventListener('click', () => h.classList.toggle('open'));
+  });
+  // Expand-all / Collapse-all toggle
+  const btn = document.getElementById('expandAllBtn');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const heads = document.querySelectorAll('.cut-card h3');
+      const anyClosed = [...heads].some(h => !h.classList.contains('open'));
+      heads.forEach(h => {
+        if (anyClosed) h.classList.add('open');
+        else h.classList.remove('open');
+      });
+      btn.textContent = anyClosed ? (btn.dataset.collapse || '전체 접기 / Collapse All') : (btn.dataset.expand || '전체 펼치기 / Expand All');
+    });
+  }
 })();
 </script>
 
