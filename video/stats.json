@@ -1,0 +1,28 @@
+{
+  "total_videos": 141,
+  "total_duration_sec": 15566.3,
+  "total_duration_min": 259.4,
+  "total_duration_hr": 4.32,
+  "mean_duration_sec": 110.4,
+  "total_size_gb": 24.87,
+  "duration_bins": {
+    "<10s": 12,
+    "10-30s": 24,
+    "30-60s": 22,
+    "1-3m": 55,
+    "3-10m": 26,
+    ">10m": 2
+  },
+  "by_folder": {
+    "meat dep_video1_0420_2026": {
+      "count": 37,
+      "duration_sec": 4064.1000000000004,
+      "size_mb": 6650.799999999999
+    },
+    "meat dep_video2_0420_2026": {
+      "count": 104,
+      "duration_sec": 11502.199999999999,
+      "size_mb": 18819.100000000002
+    }
+  }
+}

@@ -1,6 +1,92 @@
-<!DOCTYPE html>
-<html><head>
+<!doctype html>
+<html lang="ko">
+<head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=en.html">
-<script>window.location.replace('en.html');</script>
-</head><body></body></html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kimchi Mart Miami — Meat Training Hub</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Segoe UI','Malgun Gothic','Noto Sans KR',sans-serif;
+  background:linear-gradient(135deg,#1a1010 0%,#2a1515 100%);
+  color:#fff;min-height:100vh;padding:20px
+}
+.container{max-width:920px;margin:0 auto}
+.header{text-align:center;padding:32px 16px 24px}
+.logo{font-size:48px;margin-bottom:8px}
+.header h1{font-size:24px;margin-bottom:6px}
+.header .sub{color:#d2a;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:24px}
+.card{
+  background:#fff;color:#333;border-radius:16px;padding:22px;
+  text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.4);
+  transition:all .18s;display:flex;flex-direction:column
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.55)}
+.card .icon{font-size:44px;margin-bottom:12px}
+.card .t{font-size:18px;font-weight:700;color:#c1182c;margin-bottom:4px}
+.card .d{font-size:13px;color:#666;line-height:1.5;margin-bottom:12px;flex:1}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap}
+.card .tag{background:#fce4ec;color:#c1182c;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.card.video .t{color:#7a1fa2}
+.card.video .tag{background:#f3e5f5;color:#7a1fa2}
+.lang-switch{display:flex;gap:6px;justify-content:center;margin-top:16px}
+.lang-switch a{
+  background:rgba(255,255,255,.15);color:#fff;padding:6px 14px;
+  border-radius:20px;font-size:13px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.3)
+}
+.lang-switch a:hover{background:rgba(255,255,255,.28)}
+.foot{text-align:center;color:#866;font-size:12px;margin-top:32px;padding:16px}
+.foot a{color:#d2a;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">🥩</div>
+    <h1>Kimchi Mart Miami — Meat Training</h1>
+    <div class="sub">육류 부서 교육 허브 · Meat Department Training Hub · Centro de Capacitación</div>
+  </div>
+
+  <div class="grid">
+
+    <a class="card" href="en.html">
+      <div class="icon">📸</div>
+      <div class="t">Photo Manual</div>
+      <div class="d">Complete photo-based training guide with cuts, specs, and receiving inspection. Best for printed reference and quick spec lookup.</div>
+      <div class="tags">
+        <span class="tag">Chapter 1-8</span>
+        <span class="tag">Static</span>
+        <span class="tag">Print-ready</span>
+      </div>
+    </a>
+
+    <a class="card video" href="video/manual.html">
+      <div class="icon">🎬</div>
+      <div class="t">Video Manual <span style="background:#7a1fa2;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;margin-left:4px">NEW</span></div>
+      <div class="d">Interactive video catalog of 104 training clips covering 60 daily cuts + 12 premium. AI narration in Korean, English, and Miami-Spanish.</div>
+      <div class="tags">
+        <span class="tag">🎙️ 3 languages</span>
+        <span class="tag">Ch2 93% / Ch3 16%</span>
+        <span class="tag">216 narrated</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="lang-switch">
+    <a href="ko.html">🇰🇷 한국어</a>
+    <a href="en.html">🇺🇸 English</a>
+    <a href="es.html">🇪🇸 Español</a>
+  </div>
+
+  <div class="foot">
+    Kimchi Mart Miami · Meat Department<br>
+    Updated 2026-04 · <a href="video/reshoot_guide_KOR.md">Level 3 reshoot guide</a> · <a href="video/README.md">Production notes</a>
+  </div>
+</div>
+
+</body>
+</html>

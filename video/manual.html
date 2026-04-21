@@ -1,0 +1,1340 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>정육 트레이닝 영상 매뉴얼 — Kimchi Mart Miami</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  background: #0a0a0d; color: #e8e8ec; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(180deg, #12121a 0%, #0f0f15 100%);
+  border-bottom: 1px solid #222;
+  padding: 12px 20px;
+}
+.header h1 { font-size: 18px; margin: 0 0 8px; font-weight: 700; }
+.header .sub { font-size: 12px; color: #888; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.filter-btn, .search-box {
+  padding: 6px 12px; background: #1a1a22; color: #e8e8ec;
+  border: 1px solid #2a2a32; border-radius: 20px;
+  font-size: 12px; cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { background: #2a2a32; }
+.filter-btn.active { background: #4a7a4a; border-color: #6aaa6a; color: #fff; }
+.lang-btn {
+  padding: 6px 12px; background: #1a1a22; color: #e8e8ec;
+  border: 1px solid #2a2a32; border-radius: 20px;
+  font-size: 12px; cursor: pointer; transition: all 0.15s;
+}
+.lang-btn:hover { background: #2a2a32; }
+.lang-btn.active { background: #7a4a7a; border-color: #aa6aaa; color: #fff; }
+.search-box { width: 240px; border-radius: 20px; }
+.stats {
+  display: flex; gap: 16px; margin-top: 8px; font-size: 11px; color: #888;
+  flex-wrap: wrap;
+}
+main { padding: 20px; max-width: 1600px; margin: 0 auto; }
+.group { margin-bottom: 32px; }
+.group h2 {
+  font-size: 16px; color: #eee; margin: 0 0 12px; padding-bottom: 6px;
+  border-bottom: 1px solid #2a2a32;
+}
+.premium-group h2 { color: #f4c430; }
+.supporting-group h2 { color: #8ab; }
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.card {
+  background: #17171e; border: 1px solid #24242c; border-radius: 8px;
+  cursor: pointer; transition: all 0.12s; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.card:hover { border-color: #4a7a4a; transform: translateY(-2px); }
+.card[data-has-coverage="0"] { opacity: 0.45; }
+.poster {
+  position: relative; aspect-ratio: 9/16; background: #111; overflow: hidden;
+}
+.poster img { width: 100%; height: 100%; object-fit: cover; }
+.no-poster {
+  display: flex; align-items: center; justify-content: center;
+  height: 100%; font-size: 12px; color: #666; background: #1e1e26;
+}
+.badge {
+  position: absolute; padding: 3px 7px; border-radius: 4px;
+  font-size: 10px; font-weight: 600;
+}
+.badge.star { top: 6px; left: 6px; background: #f4c430; color: #111; }
+.badge.premium { top: 6px; right: 6px; background: #b847d4; color: #fff; }
+.badge.gap { top: 30px; left: 6px; background: #d44; color: #fff; }
+.info { padding: 8px 10px; flex: 1; font-size: 12px; }
+.idx { font-size: 10px; color: #666; font-family: ui-monospace, monospace; }
+.name-kr { font-weight: 600; font-size: 13px; margin-top: 2px; color: #fff; }
+.name-en { font-size: 11px; color: #9aa; margin-top: 2px; }
+.meta { font-size: 10px; color: #888; margin-top: 4px; line-height: 1.4; }
+.plu { color: #6ac; font-family: ui-monospace, monospace; }
+.clip-count {
+  font-size: 10px; color: #6a6; margin-top: 4px; font-weight: 500;
+}
+.desc { font-size: 10px; color: #888; margin-top: 3px; line-height: 1.35; }
+
+/* Modal */
+.modal-bg {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100;
+  display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-bg.active { display: flex; }
+.modal {
+  background: #12121a; border-radius: 12px; max-width: 900px; width: 100%;
+  max-height: 90vh; overflow-y: auto; border: 1px solid #2a2a32;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px; border-bottom: 1px solid #222;
+}
+.modal-close {
+  background: none; border: 0; color: #e8e8ec; font-size: 24px; cursor: pointer;
+  padding: 0 6px;
+}
+.modal-body { padding: 16px; }
+.modal video {
+  width: 100%; max-height: 60vh; background: #000; border-radius: 8px;
+}
+.clip-tabs {
+  display: flex; gap: 4px; margin-top: 12px; flex-wrap: wrap;
+}
+.clip-tab {
+  padding: 6px 10px; background: #1a1a22; border: 1px solid #2a2a32;
+  border-radius: 4px; cursor: pointer; font-size: 11px;
+}
+.clip-tab.active { background: #4a7a4a; }
+.clip-info { margin-top: 12px; font-size: 12px; color: #bbb; line-height: 1.5; }
+.clip-info strong { color: #fff; }
+.qr-hint {
+  position: fixed; bottom: 16px; right: 16px; background: #1a1a22;
+  border: 1px solid #2a2a32; padding: 8px 12px; border-radius: 8px;
+  font-size: 11px; color: #aaa;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🥩 정육 트레이닝 영상 매뉴얼 — Kimchi Mart Miami</h1>
+  <div class="sub">
+    Chapter 2: 일일 생산 56/60 (93%) · Chapter 3: 프리미엄 2/12 (16%) · 총 104 태그된 클립
+  </div>
+  <div class="filters">
+    <input type="text" class="search-box" id="search" placeholder="품목/한글명/PLU/태그 검색">
+    <button class="filter-btn active" data-filter="all">전체</button>
+    <button class="filter-btn" data-filter="bestseller">⭐ 베스트셀러</button>
+    <button class="filter-btn" data-filter="premium">★ 프리미엄</button>
+    <button class="filter-btn" data-filter="pork">🐷 돼지</button>
+    <button class="filter-btn" data-filter="beef">🐂 소</button>
+    <button class="filter-btn" data-filter="has-video">영상 있음</button>
+    <button class="filter-btn" data-filter="no-video">재촬영 필요</button>
+    <span style="width:1px;height:20px;background:#2a2a32;margin:0 8px;"></span>
+    <button class="lang-btn active" data-lang="KR">🇰🇷 한국어</button>
+    <button class="lang-btn" data-lang="EN">🇺🇸 English</button>
+    <button class="lang-btn" data-lang="ES">🇪🇸 Español</button>
+    <button class="lang-btn" data-lang="ORIG">📹 원본</button>
+  </div>
+  <div class="stats">
+    <span>A급 클립 46</span>
+    <span>B급 40</span>
+    <span>C급 18</span>
+    <span>돼지 52</span>
+    <span>소 32</span>
+  </div>
+</div>
+
+<main>
+  <section class="group"><h2>돼지 · 삼겹살/수육</h2><div class="grid">
+<div class="card" data-chapter="2" data-idx="1" data-species="돼지" data-category="삼겹살/수육" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#1</div>
+    <div class="name-kr">PORK BELLY SAMGYUPSAL (SKIN ON)</div>
+    <div class="name-en">PORK BELLY SAMGYUPSAL (SKIN ON)</div>
+    <div class="meta"><span class='plu'>PLU 9207</span> · CLEAN CUT - MACHINE · 1 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="2" data-species="돼지" data-category="삼겹살/수육" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#2</div>
+    <div class="name-kr">PORK BELLY SUYOOK (SKIN ON)</div>
+    <div class="name-en">PORK BELLY SUYOOK (SKIN ON)</div>
+    <div class="meta"><span class='plu'>PLU 9921</span> · CLEAN CUT - MACHINE · 3 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="3" data-species="돼지" data-category="삼겹살/수육" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#3</div>
+    <div class="name-kr">PORK BELLY CROSS CUT (SKINLESS)</div>
+    <div class="name-en">PORK BELLY CROSS CUT (SKINLESS)</div>
+    <div class="meta"><span class='plu'>PLU 9923</span> · CROSS CUT · 4 MM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="4" data-species="돼지" data-category="삼겹살/수육" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="9" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_155303.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:42&quot;, &quot;a&quot;: &quot;완성품 정렬&quot;, &quot;t&quot;: &quot;롤 삼겹살 완성품 트레이 + 검정 유니폼. 1분 13초. PORK BELLY ROLL #4 또는 FLOWER CUT #5 매핑.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#4</div>
+    <div class="name-kr">PORK BELLY ROLL (SKINLESS)</div>
+    <div class="name-en">PORK BELLY ROLL (SKINLESS)</div>
+    <div class="meta"><span class='plu'>PLU 9303</span> · HONEYCOMB · 1.5 CM</div>
+    <div class="clip-count">9개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="5" data-species="돼지" data-category="삼겹살/수육" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="9" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_155303.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:42&quot;, &quot;a&quot;: &quot;완성품 정렬&quot;, &quot;t&quot;: &quot;롤 삼겹살 완성품 트레이 + 검정 유니폼. 1분 13초. PORK BELLY ROLL #4 또는 FLOWER CUT #5 매핑.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#5</div>
+    <div class="name-kr">PORK BELLY FLOWER CUT</div>
+    <div class="name-en">PORK BELLY FLOWER CUT</div>
+    <div class="meta"><span class='plu'>PLU </span> · CLEAN CUT - MACHINE · 4 MM</div>
+    <div class="clip-count">9개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="6" data-species="돼지" data-category="삼겹살/수육" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#6</div>
+    <div class="name-kr">PORK BELLY FLAT (SKINLESS)</div>
+    <div class="name-en">PORK BELLY FLAT (SKINLESS)</div>
+    <div class="meta"><span class='plu'>PLU 9207</span> · CLEAN CUT - MACHINE · 1 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="7" data-species="돼지" data-category="삼겹살/수육" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#7</div>
+    <div class="name-kr">PORK BELLY HALF CUT</div>
+    <div class="name-en">PORK BELLY HALF CUT</div>
+    <div class="meta"><span class='plu'>PLU 9304</span> · CLEAN CUT - MACHINE · 1.5/1 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="8" data-species="돼지" data-category="삼겹살/수육" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#8</div>
+    <div class="name-kr">PORK BELLY SUYOOK (SKINLESS)</div>
+    <div class="name-en">PORK BELLY SUYOOK (SKINLESS)</div>
+    <div class="meta"><span class='plu'>PLU 9924</span> · CLEAN CUT - MACHINE · 3 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="9" data-species="돼지" data-category="삼겹살/수육" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#9</div>
+    <div class="name-kr">PORK BELLY SHABU - FLAT</div>
+    <div class="name-en">PORK BELLY SHABU - FLAT</div>
+    <div class="meta"><span class='plu'>PLU 9922</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="10" data-species="돼지" data-category="삼겹살/수육" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251210_165036.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;9:26&quot;, &quot;a&quot;: &quot;원육 해부&quot;, &quot;t&quot;: &quot;삼겹살 블록 측면 + 양손 면장갑 + 분리 조각. 16분 13초. S06 최장 메인. 삼겹살 섹션 핵심.&quot;}, {&quot;f&quot;: &quot;20260331_141523.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:20&quot;, &quot;a&quot;: &quot;삼겹살 종류별 비교 설명&quot;, &quot;t&quot;: &quot;삼겹살 3종(수육/삼겹/플랫 추정) 나란히 놓고 칼로 각 종 지시. 4분 1초. 품종 비교 교육 클립.&quot;}, {&quot;f&quot;: &quot;20260331_140323.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:11&quot;, &quot;a&quot;: &quot;슬라이싱 후 정렬/크기 체크&quot;, &quot;t&quot;: &quot;삼겹살 스트립 4~5조각 나란히. 칼로 각 스트립 크기 확인. 3분 45초. 슬라이스 규격 설명 클립.&quot;}, {&quot;f&quot;: &quot;20251210_170043.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;삼겹살 원육 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 큰 블록 지방층 선명. 1분 28초. 삼겹살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_120634.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;슬라이스 정렬&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 여러 장 정렬 + 블록. 4분 58초. 삼겹살 섹션 보조.&quot;}, {&quot;f&quot;: &quot;20260331_141913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;2:51&quot;, &quot;a&quot;: &quot;작업용 칼 소개/각도&quot;, &quot;t&quot;: &quot;큰 식칼 전면 클로즈업. 칼날 각도·파지법 설명. 4분 55초. 도구 소개 섹션용.&quot;}, {&quot;f&quot;: &quot;20260331_135115.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;절단 후 손질·방향성&quot;, &quot;t&quot;: &quot;돼지 삼겹살 여러 블록 나란히 배치. 손으로 조각 집어서 결 방향 확인. 2분 44초.&quot;}, {&quot;f&quot;: &quot;20260331_134329.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:06&quot;, &quot;a&quot;: &quot;원육 구조 설명&quot;, &quot;t&quot;: &quot;돼지 삼겹살 블록 단면. 손가락으로 지방층 두께/결 포인트 설명. 6초 짧은 클립.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_165036.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#10</div>
+    <div class="name-kr">PORK BELLY SHABU - ROLL</div>
+    <div class="name-en">PORK BELLY SHABU - ROLL</div>
+    <div class="meta"><span class='plu'>PLU 9302</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div></div></section><section class="group"><h2>돼지 · 목살/등심/기타</h2><div class="grid">
+<div class="card" data-chapter="2" data-idx="11" data-species="돼지" data-category="목살/등심/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="20" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20260331_144354.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:08&quot;, &quot;a&quot;: &quot;스테이크 컷 시연&quot;, &quot;t&quot;: &quot;긴 직사각 목살이 스테이크형으로 절단된 상태. 한 조각 들어 두께 확인. 1분 53초. PORK SHOULDER STEAK 매핑.&quot;}, {&quot;f&quot;: &quot;20260331_145852.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:08&quot;, &quot;a&quot;: &quot;스테이크 완성 확인&quot;, &quot;t&quot;: &quot;목살 절단 후 스테이크 조각 정렬. 1분 54초. 완성 규격 확인 클립.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150924.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:51&quot;, &quot;a&quot;: &quot;스테이크 슬라이스&quot;, &quot;t&quot;: &quot;목살 덩어리 + 스테이크 3조각 + 얇은 1장. 2분 47초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20251210_150559.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:25&quot;, &quot;a&quot;: &quot;단품 확인&quot;, &quot;t&quot;: &quot;얇은 목살 스테이크 1조각 단독. 3분 27초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#11</div>
+    <div class="name-kr">BONELESS PORK SHOULDER STEAK</div>
+    <div class="name-en">BONELESS PORK SHOULDER STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9212</span> · THICK CUT · 1.5 CM</div>
+    <div class="clip-count">20개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="12" data-species="돼지" data-category="목살/등심/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#12</div>
+    <div class="name-kr">SPECIAL PORK SHOULDER SET</div>
+    <div class="name-en">SPECIAL PORK SHOULDER SET</div>
+    <div class="meta"><span class='plu'>PLU 9221</span> · REG - HONEY · 1.5 CM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="13" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#13</div>
+    <div class="name-kr">SPECIAL PORK SHOULDER & BELLY</div>
+    <div class="name-en">SPECIAL PORK SHOULDER & BELLY</div>
+    <div class="meta"><span class='plu'>PLU 9222</span> · REG - HONEY · 1.5 CM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="14" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="17" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_154652.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;국거리 큐브 컷&quot;, &quot;t&quot;: &quot;목살/등심 큐브 조각, 손으로 집기. 2분 24초. MIXED PORK FOR SOUP #14 후보.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#14</div>
+    <div class="name-kr">MIXED PORK FOR SOUP</div>
+    <div class="name-en">MIXED PORK FOR SOUP</div>
+    <div class="meta"><span class='plu'>PLU 9206</span> · CHOP · 2~3 CM</div>
+    <div class="clip-count">17개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="15" data-species="돼지" data-category="목살/등심/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#15</div>
+    <div class="name-kr">PORK GALBI / HONEYCOMB</div>
+    <div class="name-en">PORK GALBI / HONEYCOMB</div>
+    <div class="meta"><span class='plu'>PLU 9220</span> · HONEYCOMB · 1.5 CM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="16" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="17" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20260331_152239.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:30&quot;, &quot;a&quot;: &quot;샤브 얇게 썰기&quot;, &quot;t&quot;: &quot;목살 스테이크 컷 + 샤브용 얇은 2mm 슬라이스 조각들. 2분 35초. PORK SHOULDER SHABU #16 매핑 최적.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#16</div>
+    <div class="name-kr">PORK SHOULDER SHABU</div>
+    <div class="name-en">PORK SHOULDER SHABU</div>
+    <div class="meta"><span class='plu'>PLU 9313</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">17개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="17" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#17</div>
+    <div class="name-kr">PORK SHANK STEAK (BONE IN)</div>
+    <div class="name-en">PORK SHANK STEAK (BONE IN)</div>
+    <div class="meta"><span class='plu'>PLU 9230</span> · CLEAN CUT - MACHINE · 1.5 CM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="18" data-species="돼지" data-category="목살/등심/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#18</div>
+    <div class="name-kr">PORK JOWL - HANGJEONG (항정살)</div>
+    <div class="name-en">PORK JOWL - HANGJEONG (항정살)</div>
+    <div class="meta"><span class='plu'>PLU 9158</span> · REG · 1 CM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="19" data-species="돼지" data-category="목살/등심/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#19</div>
+    <div class="name-kr">PORK JOWL - MARBLING</div>
+    <div class="name-en">PORK JOWL - MARBLING</div>
+    <div class="meta"><span class='plu'>PLU 9159</span> · REG - CURVE · 0.5 MM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="20" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#20</div>
+    <div class="name-kr">SPECIAL SET - PORK JOWL</div>
+    <div class="name-en">SPECIAL SET - PORK JOWL</div>
+    <div class="meta"><span class='plu'>PLU 9160</span> · ASSORTED · 0.5 MM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="21" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#21</div>
+    <div class="name-kr">PORK LOIN BONELESS (KATSU)</div>
+    <div class="name-en">PORK LOIN BONELESS (KATSU)</div>
+    <div class="meta"><span class='plu'>PLU 9224</span> · KATSU CUT · 1.5 CM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="22" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="16" data-clips="[{&quot;f&quot;: &quot;20260331_151400.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:58&quot;, &quot;a&quot;: &quot;저울/포장&quot;, &quot;t&quot;: &quot;목살 완성품 트레이 저울 계량 + 포장. 8분 33초. 전체 세션 최장 클립. 포장 마감 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_150154.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:25&quot;, &quot;a&quot;: &quot;슬라이싱/트레이 담기&quot;, &quot;t&quot;: &quot;목살 여러 조각 + 얇은 스트립 + 완성 트레이 + 저울. 7분 40초. 슬라이싱→포장 end-to-end 메인 영상.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_151913.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;슬라이스 비교&quot;, &quot;t&quot;: &quot;목살 스테이크 2~3조각 + 얇은 슬라이스 1장 비교. 2분 25초. 두께 규격 비교용.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20260331_152106.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:07&quot;, &quot;a&quot;: &quot;정리 과정&quot;, &quot;t&quot;: &quot;목살 슬라이스 + 큰 덩어리 + 작은 조각들 정리. 1분 56초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_151400.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#22</div>
+    <div class="name-kr">PORK LOIN SHABU ROLL</div>
+    <div class="name-en">PORK LOIN SHABU ROLL</div>
+    <div class="meta"><span class='plu'>PLU 9227</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">16개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="23" data-species="돼지" data-category="목살/등심/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="12" data-clips="[{&quot;f&quot;: &quot;20260331_145417.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:28&quot;, &quot;a&quot;: &quot;목살 종합 교육&quot;, &quot;t&quot;: &quot;돼지 목살 여러 조각 나란히, 다양한 절단 형태. 7분 41초. 목살 섹션 메인 영상 후보. 가장 긴 클립 중 하나.&quot;}, {&quot;f&quot;: &quot;20260331_144044.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:01&quot;, &quot;a&quot;: &quot;목살 해체 시연&quot;, &quot;t&quot;: &quot;돼지 목살 큰 삼각형 블록. 면장갑 작업. 해부구조 선명. 3분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_143751.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:54&quot;, &quot;a&quot;: &quot;목살 원육 절단 준비&quot;, &quot;t&quot;: &quot;돼지 목살 블록. 칼날로 중앙 절단선 지시. 마블링 선명. 3분 16초. 목살 해부 교육용.&quot;}, {&quot;f&quot;: &quot;20251210_150225.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:40&quot;, &quot;a&quot;: &quot;목살 원육 확인&quot;, &quot;t&quot;: &quot;돼지 목살 블록 마블링 풍부 + 칼. 1분 22초. 목살 클로즈업.&quot;}, {&quot;f&quot;: &quot;20251210_114100.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:26&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;돼지 목살 덩어리 + 스테이크 컷 완성. 검정 유니폼. 1분 46초. 목살 시리즈 보조.&quot;}, {&quot;f&quot;: &quot;20251210_114922.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;14:09&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 블록 대각선 + 작은 조각. 3분 49초.&quot;}, {&quot;f&quot;: &quot;20251210_152522.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:26&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;돼지 목살 큰 덩어리 + 칼. 2분 30초.&quot;}, {&quot;f&quot;: &quot;20260331_144802.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;부위 분리&quot;, &quot;t&quot;: &quot;목살 토막 1개 칼로 자르는 중. 작은 조각 분리. 2분 25초.&quot;}, {&quot;f&quot;: &quot;20251210_150342.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:54&quot;, &quot;a&quot;: &quot;목살 절단&quot;, &quot;t&quot;: &quot;칼 내리치기 목살 블록. 1분 57초.&quot;}, {&quot;f&quot;: &quot;20251210_150506.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:43&quot;, &quot;a&quot;: &quot;두 블록 비교&quot;, &quot;t&quot;: &quot;목살 두 블록 비교 + 마블링. 54초.&quot;}, {&quot;f&quot;: &quot;20260331_144248.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:14&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;목살 블록 칼 내리치기 직전 액션샷. 22초. 컷팅 시작점 트랜지션용.&quot;}, {&quot;f&quot;: &quot;20260331_144010.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:09&quot;, &quot;a&quot;: &quot;목살 세팅&quot;, &quot;t&quot;: &quot;같은 목살 블록 클로즈업 세팅. 14초 짧은 클립. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_145417.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#23</div>
+    <div class="name-kr">MIXED PORK GROUND</div>
+    <div class="name-en">MIXED PORK GROUND</div>
+    <div class="meta"><span class='plu'>PLU 9915</span> · GROUND · GROUND</div>
+    <div class="clip-count">12개 클립</div>
+  </div>
+</div></div></section><section class="group"><h2>돼지 · 갈비/뼈류</h2><div class="grid">
+<div class="card" data-chapter="2" data-idx="24" data-species="돼지" data-category="갈비/뼈류" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20260331_160015.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:39&quot;, &quot;a&quot;: &quot;베이비백립 시연&quot;, &quot;t&quot;: &quot;PORK BABY BACK RIB 전체 슬라브. 면장갑으로 들고 뼈 마디·길이 설명. 9분 42초. S10 최장 클립. 립 섹션 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251210_170158.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:17&quot;, &quot;a&quot;: &quot;립·삼겹 비교&quot;, &quot;t&quot;: &quot;돼지 립 + 삼겹 스트립 나란히 + 칼. 5분 39초. 립/삼겹 부위 비교.&quot;}, {&quot;f&quot;: &quot;20251210_170610.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:29&quot;, &quot;a&quot;: &quot;립 슬래브 시연&quot;, &quot;t&quot;: &quot;돼지 베이비백립 풀 슬래브 작업대 평면. 51초. PORK BABY BACK RIB 레퍼런스.&quot;}, {&quot;f&quot;: &quot;20251211_140917.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:10&quot;, &quot;a&quot;: &quot;립 원육 설명&quot;, &quot;t&quot;: &quot;돼지 베이비백립 or 스페어립 원육 블록. 비닐 위. 2분 58초. 립 섹션 교육용.&quot;}, {&quot;f&quot;: &quot;20260331_160613.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:16&quot;, &quot;a&quot;: &quot;디테일 클로즈업&quot;, &quot;t&quot;: &quot;동일 베이비백립 클로즈업. 뼈 구조·막(멤브레인) 디테일. 27초. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_160015.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#24</div>
+    <div class="name-kr">PORK BABY BACK RIB CUT</div>
+    <div class="name-en">PORK BABY BACK RIB CUT</div>
+    <div class="meta"><span class='plu'>PLU 9319</span> · CLEAN CUT · </div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="25" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20260331_160015.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:39&quot;, &quot;a&quot;: &quot;베이비백립 시연&quot;, &quot;t&quot;: &quot;PORK BABY BACK RIB 전체 슬라브. 면장갑으로 들고 뼈 마디·길이 설명. 9분 42초. S10 최장 클립. 립 섹션 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251210_170158.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:17&quot;, &quot;a&quot;: &quot;립·삼겹 비교&quot;, &quot;t&quot;: &quot;돼지 립 + 삼겹 스트립 나란히 + 칼. 5분 39초. 립/삼겹 부위 비교.&quot;}, {&quot;f&quot;: &quot;20251210_170610.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:29&quot;, &quot;a&quot;: &quot;립 슬래브 시연&quot;, &quot;t&quot;: &quot;돼지 베이비백립 풀 슬래브 작업대 평면. 51초. PORK BABY BACK RIB 레퍼런스.&quot;}, {&quot;f&quot;: &quot;20251211_140917.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:10&quot;, &quot;a&quot;: &quot;립 원육 설명&quot;, &quot;t&quot;: &quot;돼지 베이비백립 or 스페어립 원육 블록. 비닐 위. 2분 58초. 립 섹션 교육용.&quot;}, {&quot;f&quot;: &quot;20260331_160613.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:16&quot;, &quot;a&quot;: &quot;디테일 클로즈업&quot;, &quot;t&quot;: &quot;동일 베이비백립 클로즈업. 뼈 구조·막(멤브레인) 디테일. 27초. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_160015.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#25</div>
+    <div class="name-kr">PORK BABY BACK RIBS - CHAIN</div>
+    <div class="name-en">PORK BABY BACK RIBS - CHAIN</div>
+    <div class="meta"><span class='plu'>PLU 9928</span> · CLEAN CUT - MACHINE · 3 CM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="26" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20260331_160015.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:39&quot;, &quot;a&quot;: &quot;베이비백립 시연&quot;, &quot;t&quot;: &quot;PORK BABY BACK RIB 전체 슬라브. 면장갑으로 들고 뼈 마디·길이 설명. 9분 42초. S10 최장 클립. 립 섹션 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251210_170158.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:17&quot;, &quot;a&quot;: &quot;립·삼겹 비교&quot;, &quot;t&quot;: &quot;돼지 립 + 삼겹 스트립 나란히 + 칼. 5분 39초. 립/삼겹 부위 비교.&quot;}, {&quot;f&quot;: &quot;20251210_170610.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:29&quot;, &quot;a&quot;: &quot;립 슬래브 시연&quot;, &quot;t&quot;: &quot;돼지 베이비백립 풀 슬래브 작업대 평면. 51초. PORK BABY BACK RIB 레퍼런스.&quot;}, {&quot;f&quot;: &quot;20251211_140917.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:10&quot;, &quot;a&quot;: &quot;립 원육 설명&quot;, &quot;t&quot;: &quot;돼지 베이비백립 or 스페어립 원육 블록. 비닐 위. 2분 58초. 립 섹션 교육용.&quot;}, {&quot;f&quot;: &quot;20260331_160613.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:16&quot;, &quot;a&quot;: &quot;디테일 클로즈업&quot;, &quot;t&quot;: &quot;동일 베이비백립 클로즈업. 뼈 구조·막(멤브레인) 디테일. 27초. B-roll용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_160015.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#26</div>
+    <div class="name-kr">PORK BABY BACK RIBS - WHOLE</div>
+    <div class="name-en">PORK BABY BACK RIBS - WHOLE</div>
+    <div class="meta"><span class='plu'>PLU </span> · WHOLE / SKIN OUT · </div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="27" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="1" data-clips="[{&quot;f&quot;: &quot;20251211_140917.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:10&quot;, &quot;a&quot;: &quot;립 원육 설명&quot;, &quot;t&quot;: &quot;돼지 베이비백립 or 스페어립 원육 블록. 비닐 위. 2분 58초. 립 섹션 교육용.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_140917.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#27</div>
+    <div class="name-kr">PORK SPARE RIB CUT</div>
+    <div class="name-en">PORK SPARE RIB CUT</div>
+    <div class="meta"><span class='plu'>PLU 9326</span> · CLEAN CUT · </div>
+    <div class="clip-count">1개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="28" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#28</div>
+    <div class="name-kr">PORK NECK BONE</div>
+    <div class="name-en">PORK NECK BONE</div>
+    <div class="meta"><span class='plu'>PLU 9311</span> · CLEAN CUT - MACHINE · 5 CM</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="29" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#29</div>
+    <div class="name-kr">PORK FRONT FEET</div>
+    <div class="name-en">PORK FRONT FEET</div>
+    <div class="meta"><span class='plu'>PLU 9306</span> · CLEAN CUT - MACHINE · 5 CM</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="30" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#30</div>
+    <div class="name-kr">PORK HOCK</div>
+    <div class="name-en">PORK HOCK</div>
+    <div class="meta"><span class='plu'>PLU 9316</span> · CLEAN CUT - MACHINE · WHOLE</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="31" data-species="돼지" data-category="갈비/뼈류" data-bestseller="0" data-premium="0" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#31</div>
+    <div class="name-kr">PORK BONE - FEMUR (SOUP)</div>
+    <div class="name-en">PORK BONE - FEMUR (SOUP)</div>
+    <div class="meta"><span class='plu'>PLU 9317</span> · CLEAN CUT - MACHINE · 5 CM</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div></div></section><section class="group"><h2>소 · 등심/차돌박이</h2><div class="grid">
+<div class="card" data-chapter="2" data-idx="32" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="6" data-clips="[{&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_154459.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:15&quot;, &quot;a&quot;: &quot;BULGOGI 슬라이스&quot;, &quot;t&quot;: &quot;얇은 붉은 스트립 여러 개 + 칼. 2분 39초. BEEF RIBEYE THIN BULGOGI #32 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_151130.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#32</div>
+    <div class="name-kr">BEEF RIBEYE THIN - BULGOGI</div>
+    <div class="name-en">BEEF RIBEYE THIN - BULGOGI</div>
+    <div class="meta"><span class='plu'>PLU 9203</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">6개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="33" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_151130.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#33</div>
+    <div class="name-kr">BEEF RIBEYE SHABU</div>
+    <div class="name-en">BEEF RIBEYE SHABU</div>
+    <div class="meta"><span class='plu'>PLU 9106</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="34" data-species="소" data-category="등심/차돌박이" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_151130.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#34</div>
+    <div class="name-kr">BEEF RIBEYE SAEWOO</div>
+    <div class="name-en">BEEF RIBEYE SAEWOO</div>
+    <div class="meta"><span class='plu'>PLU 9216</span> · SHRIMP CUT · </div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="35" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_151130.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#35</div>
+    <div class="name-kr">BEEF RIBEYE STEAK</div>
+    <div class="name-en">BEEF RIBEYE STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9138</span> · STEAK CUT · 1.5 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="36" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_151130.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#36</div>
+    <div class="name-kr">SPECIAL BEEF SET</div>
+    <div class="name-en">SPECIAL BEEF SET</div>
+    <div class="meta"><span class='plu'>PLU 9171</span> · ASSORTED · 0.5 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="37" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="9" data-clips="[{&quot;f&quot;: &quot;20260331_165236.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:24&quot;, &quot;a&quot;: &quot;프라임 원육 해부&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(차돌/등심 추정, 마블링 풍부). 면장갑 지시. 9분 18초. S10 두번째 장시간 메인. Brisket/Ribeye 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_165236.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#37</div>
+    <div class="name-kr">BEEF BRISKET SHABU (FLAT)</div>
+    <div class="name-en">BEEF BRISKET SHABU (FLAT)</div>
+    <div class="meta"><span class='plu'>PLU 9162</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">9개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="38" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="9" data-clips="[{&quot;f&quot;: &quot;20260331_165236.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:24&quot;, &quot;a&quot;: &quot;프라임 원육 해부&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(차돌/등심 추정, 마블링 풍부). 면장갑 지시. 9분 18초. S10 두번째 장시간 메인. Brisket/Ribeye 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_151130.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;4:11&quot;, &quot;a&quot;: &quot;샤브 스트립 정렬&quot;, &quot;t&quot;: &quot;소고기 샤브 스트립 6~8조각 정렬. 3분 8초. BEEF SHABU(Ribeye/Brisket/Navel Shabu) 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_165236.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#38</div>
+    <div class="name-kr">BEEF BRISKET SHABU (ROLL)</div>
+    <div class="name-en">BEEF BRISKET SHABU (ROLL)</div>
+    <div class="meta"><span class='plu'>PLU 9163</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">9개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="39" data-species="소" data-category="등심/차돌박이" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20260331_165236.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:24&quot;, &quot;a&quot;: &quot;프라임 원육 해부&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(차돌/등심 추정, 마블링 풍부). 면장갑 지시. 9분 18초. S10 두번째 장시간 메인. Brisket/Ribeye 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_165236.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#39</div>
+    <div class="name-kr">BEEF BRISKET STEAK</div>
+    <div class="name-en">BEEF BRISKET STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9164</span> · STEAK CUT · 1.5 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="40" data-species="소" data-category="등심/차돌박이" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20260331_165236.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:24&quot;, &quot;a&quot;: &quot;프라임 원육 해부&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(차돌/등심 추정, 마블링 풍부). 면장갑 지시. 9분 18초. S10 두번째 장시간 메인. Brisket/Ribeye 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_165236.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#40</div>
+    <div class="name-kr">BEEF BRISKET WHOLE</div>
+    <div class="name-en">BEEF BRISKET WHOLE</div>
+    <div class="meta"><span class='plu'>PLU 9166</span> · WHOLE · </div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="41" data-species="소" data-category="등심/차돌박이" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20260331_165236.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:24&quot;, &quot;a&quot;: &quot;프라임 원육 해부&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(차돌/등심 추정, 마블링 풍부). 면장갑 지시. 9분 18초. S10 두번째 장시간 메인. Brisket/Ribeye 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_165236.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#41</div>
+    <div class="name-kr">BEEF NAVEL SHABU</div>
+    <div class="name-en">BEEF NAVEL SHABU</div>
+    <div class="meta"><span class='plu'>PLU 9127</span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="42" data-species="소" data-category="등심/차돌박이" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20260331_165236.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:24&quot;, &quot;a&quot;: &quot;프라임 원육 해부&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(차돌/등심 추정, 마블링 풍부). 면장갑 지시. 9분 18초. S10 두번째 장시간 메인. Brisket/Ribeye 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_141800.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;원육 절단 준비&quot;, &quot;t&quot;: &quot;소고기 대형 원육 블록(지방 캡). 큰 식칼 옆. 7분 35초. S08 주요 메인 영상.&quot;}, {&quot;f&quot;: &quot;20251211_164341.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;원육 해체&quot;, &quot;t&quot;: &quot;소고기 마블링 풍부한 등심/차돌 블록 + 두 칼. 5분 9초. Ch2 RIBEYE/BRISKET 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_164132.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:51&quot;, &quot;a&quot;: &quot;부위 비교&quot;, &quot;t&quot;: &quot;소고기 두 큰 블록 양손 비교. 2분 21초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_165236.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#42</div>
+    <div class="name-kr">BEEF NAVEL STEAK</div>
+    <div class="name-en">BEEF NAVEL STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9168</span> · THICK SLICED · 1.5 CM</div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div></div></section><section class="group"><h2>소 · 목심/우둔/기타</h2><div class="grid">
+<div class="card" data-chapter="2" data-idx="43" data-species="소" data-category="목심/우둔/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_171229.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:26&quot;, &quot;a&quot;: &quot;스테이크 컷&quot;, &quot;t&quot;: &quot;소고기 스테이크 3-4조각 마블링. 6분 38초. CHUCK TOP BLADE STEAK #43 후보.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_171229.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#43</div>
+    <div class="name-kr">BEEF CHUCK TOP BLADE STEAK</div>
+    <div class="name-en">BEEF CHUCK TOP BLADE STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9153</span> · STEAK CUT · 1.5 CM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="44" data-species="소" data-category="목심/우둔/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_171229.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:26&quot;, &quot;a&quot;: &quot;스테이크 컷&quot;, &quot;t&quot;: &quot;소고기 스테이크 3-4조각 마블링. 6분 38초. CHUCK TOP BLADE STEAK #43 후보.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_171229.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#44</div>
+    <div class="name-kr">BEEF CHUCK TOP BLADE SHABU</div>
+    <div class="name-en">BEEF CHUCK TOP BLADE SHABU</div>
+    <div class="meta"><span class='plu'>PLU </span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="45" data-species="소" data-category="목심/우둔/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="7" data-clips="[{&quot;f&quot;: &quot;20251211_171229.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;5:26&quot;, &quot;a&quot;: &quot;스테이크 컷&quot;, &quot;t&quot;: &quot;소고기 스테이크 3-4조각 마블링. 6분 38초. CHUCK TOP BLADE STEAK #43 후보.&quot;}, {&quot;f&quot;: &quot;20251211_164859.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:28&quot;, &quot;a&quot;: &quot;살치살/부채살 정리&quot;, &quot;t&quot;: &quot;소고기 3조각 세로 삼각형 컷 + 칼. 4분 28초. Ch2 CHUCK FLAP TAIL(살치살) 후보. 또는 Ch3 #5.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20260331_154843.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;부위 설명/시연&quot;, &quot;t&quot;: &quot;소고기 작은 조각 2개 + 큰 식칼. 마블링 부위 설명. 2분 30초. 살치살/치마살 후보.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_171229.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#45</div>
+    <div class="name-kr">BEEF CHUCK FLAP TAIL (살치살)</div>
+    <div class="name-en">BEEF CHUCK FLAP TAIL (살치살)</div>
+    <div class="meta"><span class='plu'>PLU 9202</span> · GALBISAL CUT · 0.5 CM</div>
+    <div class="clip-count">7개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="46" data-species="소" data-category="목심/우둔/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20260331_154843.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;부위 설명/시연&quot;, &quot;t&quot;: &quot;소고기 작은 조각 2개 + 큰 식칼. 마블링 부위 설명. 2분 30초. 살치살/치마살 후보.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_162431.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#46</div>
+    <div class="name-kr">BEEF CHUCK FLAP STEAK</div>
+    <div class="name-en">BEEF CHUCK FLAP STEAK</div>
+    <div class="meta"><span class='plu'>PLU </span> · STEAK CUT · 1.5 CM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="47" data-species="소" data-category="목심/우둔/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20260331_154843.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;부위 설명/시연&quot;, &quot;t&quot;: &quot;소고기 작은 조각 2개 + 큰 식칼. 마블링 부위 설명. 2분 30초. 살치살/치마살 후보.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_162431.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#47</div>
+    <div class="name-kr">BEEF EYE ROUND STEAK</div>
+    <div class="name-en">BEEF EYE ROUND STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9170</span> · STEAK CUT · 1.5 CM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="48" data-species="소" data-category="목심/우둔/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="5" data-clips="[{&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20260331_154843.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;부위 설명/시연&quot;, &quot;t&quot;: &quot;소고기 작은 조각 2개 + 큰 식칼. 마블링 부위 설명. 2분 30초. 살치살/치마살 후보.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_162431.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#48</div>
+    <div class="name-kr">BEEF EYE ROUND SHABU</div>
+    <div class="name-en">BEEF EYE ROUND SHABU</div>
+    <div class="meta"><span class='plu'>PLU </span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">5개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="49" data-species="소" data-category="목심/우둔/기타" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="6" data-clips="[{&quot;f&quot;: &quot;20251211_145637.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:27&quot;, &quot;a&quot;: &quot;스커트 절단 후&quot;, &quot;t&quot;: &quot;스커트 스테이크 절단된 조각들. 2분 13초. BEEF SKIRT STEAK 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_162431.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:50&quot;, &quot;a&quot;: &quot;스테이크 절단&quot;, &quot;t&quot;: &quot;소고기 블록 + 절단된 스테이크 조각. 2분 17초. STEAK CUT 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_175240.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:05&quot;, &quot;a&quot;: &quot;스테이크 컷팅&quot;, &quot;t&quot;: &quot;소고기 삼각 덩어리 + 절단 스테이크. 5분 32초.&quot;}, {&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20260331_154843.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;부위 설명/시연&quot;, &quot;t&quot;: &quot;소고기 작은 조각 2개 + 큰 식칼. 마블링 부위 설명. 2분 30초. 살치살/치마살 후보.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_145637.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#49</div>
+    <div class="name-kr">BEEF SKIRT STEAK</div>
+    <div class="name-en">BEEF SKIRT STEAK</div>
+    <div class="meta"><span class='plu'>PLU 9134</span> · STEAK CUT · 1.5 CM</div>
+    <div class="clip-count">6개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="50" data-species="소" data-category="목심/우둔/기타" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="2" data-clips="[{&quot;f&quot;: &quot;20251211_152642.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:25&quot;, &quot;a&quot;: &quot;블록 절단 준비&quot;, &quot;t&quot;: &quot;소고기 중형 블록 + 두 칼. 2분 11초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_152642.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#50</div>
+    <div class="name-kr">BEEF SKIRT SHABU</div>
+    <div class="name-en">BEEF SKIRT SHABU</div>
+    <div class="meta"><span class='plu'>PLU </span> · CLEAN CUT - MACHINE · 2 MM</div>
+    <div class="clip-count">2개 클립</div>
+  </div>
+</div></div></section><section class="group"><h2>소 · LA갈비/탕류 뼈</h2><div class="grid">
+<div class="card" data-chapter="2" data-idx="51" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="8" data-clips="[{&quot;f&quot;: &quot;20260331_134624.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;3:01&quot;, &quot;a&quot;: &quot;뼈 마디 짚기/발골 시연&quot;, &quot;t&quot;: &quot;같은 소갈비 블록에서 손가락으로 뼈 마디 간격 짚으며 3-bone 커팅 기준 지시. 3분 1초. 발골 시연의 핵심 클립.&quot;}, {&quot;f&quot;: &quot;20260331_134348.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:28&quot;, &quot;a&quot;: &quot;원육 해부 설명&quot;, &quot;t&quot;: &quot;소갈비 본인 원육(SHORT RIB). 뼈 마디가 선명히 보이는 완벽한 overhead 프레임. LA갈비 구조 설명용 마스터 샷. 2분 28초.&quot;}, {&quot;f&quot;: &quot;20260331_134936.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:29&quot;, &quot;a&quot;: &quot;절단 각도 설명&quot;, &quot;t&quot;: &quot;소갈비 블록 측면 회전. 절단면·고기 두께 확인. 1분 29초.&quot;}, {&quot;f&quot;: &quot;20260331_135855.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:33&quot;, &quot;a&quot;: &quot;절단 시작&quot;, &quot;t&quot;: &quot;소갈비 블록 양손 세팅, 칼질 시작 직전. 57초.&quot;}, {&quot;f&quot;: &quot;20260331_135709.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:23&quot;, &quot;a&quot;: &quot;원육 마스터컷 레퍼런스&quot;, &quot;t&quot;: &quot;소갈비 원육 가장 깨끗한 전체 샷. 뼈 마디·지방·고기 선명. 40초. 썸네일/B-roll 최적.&quot;}, {&quot;f&quot;: &quot;20260331_135839.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:11&quot;, &quot;a&quot;: &quot;해부 단면&quot;, &quot;t&quot;: &quot;소갈비 다른 각도. 뼈·고기·지방 분리 단면 해부도급. 19초.&quot;}, {&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_134624.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#51</div>
+    <div class="name-kr">BEEF SHORT RIB 3-BONE (LA GALBI)</div>
+    <div class="name-en">BEEF SHORT RIB 3-BONE (LA GALBI)</div>
+    <div class="meta"><span class='plu'>PLU 9205</span> · CLEAN CUT - MACHINE · </div>
+    <div class="clip-count">8개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="52" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="2" data-clips="[{&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_170236.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#52</div>
+    <div class="name-kr">BEEF SHORT RIB BONE (SOUP)</div>
+    <div class="name-en">BEEF SHORT RIB BONE (SOUP)</div>
+    <div class="meta"><span class='plu'>PLU 9156</span> · CLEAN CUT - MACHINE · </div>
+    <div class="clip-count">2개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="53" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="2" data-clips="[{&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_170236.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#53</div>
+    <div class="name-kr">BONELESS BEEF SHORT RIB (갈비살)</div>
+    <div class="name-en">BONELESS BEEF SHORT RIB (갈비살)</div>
+    <div class="meta"><span class='plu'>PLU 9215</span> · 3~4 BONE MEAT · 0.5 CM</div>
+    <div class="clip-count">2개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="54" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="2" data-clips="[{&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_170236.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#54</div>
+    <div class="name-kr">BEEF SHORT RIB FOR STEW</div>
+    <div class="name-en">BEEF SHORT RIB FOR STEW</div>
+    <div class="meta"><span class='plu'>PLU 9149</span> · CLEAN CUT - MACHINE · </div>
+    <div class="clip-count">2개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="55" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="2" data-clips="[{&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_170236.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#55</div>
+    <div class="name-kr">BEEF BACK RIB</div>
+    <div class="name-en">BEEF BACK RIB</div>
+    <div class="meta"><span class='plu'>PLU 9167</span> ·  · </div>
+    <div class="clip-count">2개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="56" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="3" data-clips="[{&quot;f&quot;: &quot;20251211_161139.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;11:00&quot;, &quot;a&quot;: &quot;뼈 분리&quot;, &quot;t&quot;: &quot;소고기 뼈 + 작은 조각 + 면장갑 고기 파지. 6분 4초. BEEF CHUCK SHORT RIB 발골 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_161139.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#56</div>
+    <div class="name-kr">BEEF CHUCK SHORT RIB W/BONE</div>
+    <div class="name-en">BEEF CHUCK SHORT RIB W/BONE</div>
+    <div class="meta"><span class='plu'>PLU </span> · 4 BONES · </div>
+    <div class="clip-count">3개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="57" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="3" data-clips="[{&quot;f&quot;: &quot;20251211_161139.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;11:00&quot;, &quot;a&quot;: &quot;뼈 분리&quot;, &quot;t&quot;: &quot;소고기 뼈 + 작은 조각 + 면장갑 고기 파지. 6분 4초. BEEF CHUCK SHORT RIB 발골 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_161139.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#57</div>
+    <div class="name-kr">BEEF CHUCK SHORT RIB (STEW)</div>
+    <div class="name-en">BEEF CHUCK SHORT RIB (STEW)</div>
+    <div class="meta"><span class='plu'>PLU 9161</span> · CLEAN CUT - MACHINE · </div>
+    <div class="clip-count">3개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="58" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="1" data-premium="0" data-has-coverage="1" data-clip-count="3" data-clips="[{&quot;f&quot;: &quot;20251211_161139.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;11:00&quot;, &quot;a&quot;: &quot;뼈 분리&quot;, &quot;t&quot;: &quot;소고기 뼈 + 작은 조각 + 면장갑 고기 파지. 6분 4초. BEEF CHUCK SHORT RIB 발골 매핑.&quot;}, {&quot;f&quot;: &quot;20251211_170236.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;5:55&quot;, &quot;a&quot;: &quot;갈비 분리&quot;, &quot;t&quot;: &quot;소고기 큰 덩어리 + 립 조각. 6분 26초.&quot;}, {&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_161139.jpg" loading="lazy" alt=""><span class="badge star">⭐ BEST</span></div>
+  <div class="info">
+    <div class="idx">#58</div>
+    <div class="name-kr">BEEF CHUCK SHORT RIB BONELESS</div>
+    <div class="name-en">BEEF CHUCK SHORT RIB BONELESS</div>
+    <div class="meta"><span class='plu'>PLU 9219</span> · 4 BONES · 0.5 CM</div>
+    <div class="clip-count">3개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="59" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="3" data-clips="[{&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}, {&quot;f&quot;: &quot;20251211_175812.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;1:15&quot;, &quot;a&quot;: &quot;스크랩 정리&quot;, &quot;t&quot;: &quot;분홍 고기 조각 + 큐브. 2분 11초. BEEF GROUND #59 스크랩 정리 가능성.&quot;}, {&quot;f&quot;: &quot;20251210_121132.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:25&quot;, &quot;a&quot;: &quot;스크랩 정리&quot;, &quot;t&quot;: &quot;분홍 작은 조각 + 빨간 조각 + 칼. 2분 10초. GROUND 준비 가능성.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_143127.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#59</div>
+    <div class="name-kr">BEEF GROUND</div>
+    <div class="name-en">BEEF GROUND</div>
+    <div class="meta"><span class='plu'>PLU 9914</span> · MACHINE GROUND · </div>
+    <div class="clip-count">3개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="2" data-idx="60" data-species="소" data-category="LA갈비/탕류 뼈" data-bestseller="0" data-premium="0" data-has-coverage="1" data-clip-count="1" data-clips="[{&quot;f&quot;: &quot;20251211_143127.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:22&quot;, &quot;a&quot;: &quot;2인 해체 작업&quot;, &quot;t&quot;: &quot;두 작업자가 소고기 조각 나눠 해체. 2분 57초.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_143127.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="idx">#60</div>
+    <div class="name-kr">MIXED BEEF FOR SOUP</div>
+    <div class="name-en">MIXED BEEF FOR SOUP</div>
+    <div class="meta"><span class='plu'>PLU 9137</span> · HAND SPECIAL · </div>
+    <div class="clip-count">1개 클립</div>
+  </div>
+</div></div></section>
+  <section class="group premium-group"><h2>★ 프리미엄 컷 (Chapter 3)</h2><div class="grid">
+<div class="card" data-chapter="3" data-idx="1" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#1</div>
+    <div class="name-kr">토시살</div>
+    <div class="name-en">Hanger Steak, Cleaned</div>
+    <div class="meta">★★★ · "Peeled/Denuded" — Membrane must be fully removed before delivery.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="2" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#2</div>
+    <div class="name-kr">제비추리</div>
+    <div class="name-en">Shoulder Tender (Teres Major)</div>
+    <div class="meta">★★★ · "Whole" form only. Do NOT accept pre-sliced.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="3" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#3</div>
+    <div class="name-kr">안창살</div>
+    <div class="name-en">Inside Skirt Steak, Peeled</div>
+    <div class="meta">★★★ · INSIDE skirt only — not Outside. Inside = correct Korean Anchangsal.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="4" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="1" data-clip-count="1" data-clips="[{&quot;f&quot;: &quot;20251211_152853.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:36&quot;, &quot;a&quot;: &quot;부위 해체&quot;, &quot;t&quot;: &quot;소고기 중형 블록 절단면 확인. 마블링 풍부. 4분 23초. 치마살(Beef Flap) or 차돌 Navel 매핑 후보.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_152853.jpg" loading="lazy" alt=""><span class="badge premium">★ 프리미엄</span></div>
+  <div class="info">
+    <div class="idx">#4</div>
+    <div class="name-kr">치마살</div>
+    <div class="name-en">Beef Flap Meat (Sirloin Flap)</div>
+    <div class="meta">★★★ · "Peeled" required. Without this spec, yield loss reaches 40%.</div>
+    <div class="clip-count">1개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="5" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#5</div>
+    <div class="name-kr">살치살</div>
+    <div class="name-en">Chuck Flap Tail</div>
+    <div class="meta">★★★ · PRIME GRADE required. Choice grade = reject for grilling use.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="6" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#6</div>
+    <div class="name-kr">부채살</div>
+    <div class="name-en">Flat Iron (Top Blade)</div>
+    <div class="meta">★★☆ · Must be separated from Shoulder Clod. Verify clean seam.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="7" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#7</div>
+    <div class="name-kr">늙간살</div>
+    <div class="name-en">Rib Fingers (Intercostal)</div>
+    <div class="meta">★★☆ · "Peeled" — membrane and bone-side tissue fully removed.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="8" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="1" data-clip-count="2" data-clips="[{&quot;f&quot;: &quot;20251211_145247.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:47&quot;, &quot;a&quot;: &quot;긴 부위 원육 설명&quot;, &quot;t&quot;: &quot;긴 소고기 스커트/업진살 원육. 넓게 펼친 상태. 3분 37초. Ch3 업진살(Short Plate) 매핑 후보.&quot;}, {&quot;f&quot;: &quot;20251211_145504.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;1:24&quot;, &quot;a&quot;: &quot;다른 각도 시연&quot;, &quot;t&quot;: &quot;동일 긴 블록 다른 각도. 2분 33초. 핸들링/두께 설명.&quot;}]"
+     onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_145247.jpg" loading="lazy" alt=""><span class="badge premium">★ 프리미엄</span></div>
+  <div class="info">
+    <div class="idx">#8</div>
+    <div class="name-kr">업진살</div>
+    <div class="name-en">Short Plate (Beef Belly)</div>
+    <div class="meta">★★☆ · "Boneless" and "Trimmed" — verify both specs on every delivery.</div>
+    <div class="clip-count">2개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="9" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#9</div>
+    <div class="name-kr">새우살</div>
+    <div class="name-en">Ribeye Cap (Spinalis)</div>
+    <div class="meta">★★★ · "Deckle-off" Spinalis only. Highest margin item.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="10" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#10</div>
+    <div class="name-kr">알등심</div>
+    <div class="name-en">Ribeye Roll, Export Style</div>
+    <div class="meta">★★☆ · "Lip-off" required. Lip-on = excess fat = waste.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="11" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#11</div>
+    <div class="name-kr">홍두깨살</div>
+    <div class="name-en">Eye of Round</div>
+    <div class="meta">★★☆ · "Denuded" — all external fat must be removed.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div>
+<div class="card" data-chapter="3" data-idx="12" data-species="" data-category="" data-bestseller="0" data-premium="1" data-has-coverage="0" data-clip-count="0" data-clips="[]"
+     onclick="openPlayer(this)">
+  <div class="poster"><div class="no-poster">촬영 필요</div><span class="badge premium">★ 프리미엄</span><span class="badge gap">재촬영 필요</span></div>
+  <div class="info">
+    <div class="idx">#12</div>
+    <div class="name-kr">꽃등심덧살</div>
+    <div class="name-en">Lifter Meat (Blade Meat)</div>
+    <div class="meta">★☆☆ · ⚠️ Do NOT confuse with Ribeye Cap. Different cut, different price.</div>
+    <div class="clip-count">0개 클립</div>
+  </div>
+</div></div></section>
+  <section class="group supporting-group" data-key="intro"><h2>🎬 인트로 / 소개</h2><div class="grid">
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_101105.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:02&quot;, &quot;a&quot;: &quot;인트로/소개&quot;, &quot;t&quot;: &quot;작업자 정면, 빨간 모자 + 검정 유니폼, 칼 세팅. 3초. 영상 인트로 쇼트 후보.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_101105.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">인트로/소개</div>
+    <div class="meta">0:02 · Q:B</div>
+    <div class="desc">작업자 정면, 빨간 모자 + 검정 유니폼, 칼 세팅. 3초. 영상 인트로 쇼트 후보.</div>
+  </div>
+</div></div></section><section class="group supporting-group" data-key="prep"><h2>🔪 Chapter 1 — 오픈 / 도구 준비 / 위생</h2><div class="grid">
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_110739.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:48&quot;, &quot;a&quot;: &quot;칼 자세 교육&quot;, &quot;t&quot;: &quot;돼지 부위 다이어그램 포스터 배경 + 칼 세로 절단 시범 (빈 작업대). 1분 8초. Ch1 칼 각도/자세 교육 메인.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_110739.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">칼 자세 교육</div>
+    <div class="meta">0:48 · Q:A</div>
+    <div class="desc">돼지 부위 다이어그램 포스터 배경 + 칼 세로 절단 시범 (빈 작업대). 1분 8초. Ch1 칼 각도/자세 교육 메인.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_102853.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:30&quot;, &quot;a&quot;: &quot;칼 샤프닝+부위도&quot;, &quot;t&quot;: &quot;칼 갈기 진행 + 뒤에 돼지 부위 다이어그램 포스터. 3분 53초. Ch1 도구+부위 해부 종합 클립.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_102853.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">칼 샤프닝+부위도</div>
+    <div class="meta">0:30 · Q:A</div>
+    <div class="desc">칼 갈기 진행 + 뒤에 돼지 부위 다이어그램 포스터. 3분 53초. Ch1 도구+부위 해부 종합 클립.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_110857.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:16&quot;, &quot;a&quot;: &quot;수건 절단 + 부위도&quot;, &quot;t&quot;: &quot;흰 수건 칼로 절단 + 돼지 부위 포스터. 1분 25초. Ch1 샤프니스/부위 해부 종합.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_110857.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">수건 절단 + 부위도</div>
+    <div class="meta">0:16 · Q:A</div>
+    <div class="desc">흰 수건 칼로 절단 + 돼지 부위 포스터. 1분 25초. Ch1 샤프니스/부위 해부 종합.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_102838.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:13&quot;, &quot;a&quot;: &quot;칼 샤프닝&quot;, &quot;t&quot;: &quot;숫돌 위에서 칼 갈기 동작. 15초. Ch1 도구 준비 메인 클립. 교육용.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_102838.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">칼 샤프닝</div>
+    <div class="meta">0:13 · Q:A</div>
+    <div class="desc">숫돌 위에서 칼 갈기 동작. 15초. Ch1 도구 준비 메인 클립. 교육용.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_135635.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:04&quot;, &quot;a&quot;: &quot;진공 포장 수령 상태&quot;, &quot;t&quot;: &quot;진공 포장된 돼지 원육 블록. 포장 해체 직전. 1분 51초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_135635.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">진공 포장 수령 상태</div>
+    <div class="meta">1:04 · Q:B</div>
+    <div class="desc">진공 포장된 돼지 원육 블록. 포장 해체 직전. 1분 51초.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_103112.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:37&quot;, &quot;a&quot;: &quot;칼 날카로움 테스트&quot;, &quot;t&quot;: &quot;흰 수건/종이 칼로 절단 - 샤프니스 테스트. 5분 12초. Ch1 도구 준비.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_103112.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">칼 날카로움 테스트</div>
+    <div class="meta">0:37 · Q:B</div>
+    <div class="desc">흰 수건/종이 칼로 절단 - 샤프니스 테스트. 5분 12초. Ch1 도구 준비.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_102130.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:17&quot;, &quot;a&quot;: &quot;칼 세팅&quot;, &quot;t&quot;: &quot;숫돌 + 장갑 + 칼 세팅. 19초. 도구 준비 섹션 오프닝.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_102130.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">칼 세팅</div>
+    <div class="meta">0:17 · Q:B</div>
+    <div class="desc">숫돌 + 장갑 + 칼 세팅. 19초. 도구 준비 섹션 오프닝.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_135806.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:05&quot;, &quot;a&quot;: &quot;원육 확인&quot;, &quot;t&quot;: &quot;동일 진공포장 블록 다른 각도. 9초. B-roll.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_135806.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">원육 확인</div>
+    <div class="meta">0:05 · Q:B</div>
+    <div class="desc">동일 진공포장 블록 다른 각도. 9초. B-roll.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_143015.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;3:04&quot;, &quot;a&quot;: &quot;비닐 포장 해체&quot;, &quot;t&quot;: &quot;연보라색 돼지 원육 블록 비닐 포장 해체. 해동/수령 단계. 5분 17초. 길지만 교육 가치 낮음.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20260331_143015_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">비닐 포장 해체</div>
+    <div class="meta">3:04 · Q:C</div>
+    <div class="desc">연보라색 돼지 원육 블록 비닐 포장 해체. 해동/수령 단계. 5분 17초. 길지만 교육 가치 낮음.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_140042.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;1:50&quot;, &quot;a&quot;: &quot;손 세척&quot;, &quot;t&quot;: &quot;사람 뒷모습 싱크대 손 씻기. 3분 9초. 위생 절차 교육용.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20251211_140042_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">손 세척</div>
+    <div class="meta">1:50 · Q:C</div>
+    <div class="desc">사람 뒷모습 싱크대 손 씻기. 3분 9초. 위생 절차 교육용.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_134012.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;1:28&quot;, &quot;a&quot;: &quot;작업대 세팅/매트 정리&quot;, &quot;t&quot;: &quot;분홍 흡수매트 위 작업대 준비. 면장갑 착용 후 정돈 작업. 저울·포장대 가동 시작.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20260331_134012_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">작업대 세팅/매트 정리</div>
+    <div class="meta">1:28 · Q:C</div>
+    <div class="desc">분홍 흡수매트 위 작업대 준비. 면장갑 착용 후 정돈 작업. 저울·포장대 가동 시작.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_140844.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:56&quot;, &quot;a&quot;: &quot;흡수매트 수분 제거&quot;, &quot;t&quot;: &quot;분홍 흡수매트 위 양손 정리 작업. 수분·핏물 흡수매트 교체. 1분 36초. 위생/준비 단계.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20260331_140844_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">흡수매트 수분 제거</div>
+    <div class="meta">0:56 · Q:C</div>
+    <div class="desc">분홍 흡수매트 위 양손 정리 작업. 수분·핏물 흡수매트 교체. 1분 36초. 위생/준비 단계.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_150155.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:18&quot;, &quot;a&quot;: &quot;포장 해체&quot;, &quot;t&quot;: &quot;포장 해체 중 면장갑. 28초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20251210_150155_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">포장 해체</div>
+    <div class="meta">0:18 · Q:C</div>
+    <div class="desc">포장 해체 중 면장갑. 28초.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_174912.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:16&quot;, &quot;a&quot;: &quot;포장품 핸들링&quot;, &quot;t&quot;: &quot;진공 포장 분홍 고기 블록. 33초. 원육 수령.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20251211_174912_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">포장품 핸들링</div>
+    <div class="meta">0:16 · Q:C</div>
+    <div class="desc">진공 포장 분홍 고기 블록. 33초. 원육 수령.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_165956.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:05&quot;, &quot;a&quot;: &quot;싱크대 세척&quot;, &quot;t&quot;: &quot;사람 뒷모습, 싱크대 세척 중. 10초. 위생/마감.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20260331_165956_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">싱크대 세척</div>
+    <div class="meta">0:05 · Q:C</div>
+    <div class="desc">사람 뒷모습, 싱크대 세척 중. 10초. 위생/마감.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_101054.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:05&quot;, &quot;a&quot;: &quot;싱크대 준비&quot;, &quot;t&quot;: &quot;작업자 싱크대 옆 서 있음. 6초. 위생 준비 시작.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20251210_101054_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">싱크대 준비</div>
+    <div class="meta">0:05 · Q:C</div>
+    <div class="desc">작업자 싱크대 옆 서 있음. 6초. 위생 준비 시작.</div>
+  </div>
+</div></div></section><section class="group supporting-group" data-key="display"><h2>📦 Chapter 4 — 진열 / 포장 완제품</h2><div class="grid">
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_163132.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;2:53&quot;, &quot;a&quot;: &quot;트레이 담기/진공포장&quot;, &quot;t&quot;: &quot;삼겹살 슬라이스 알루미늄 트레이 담아 포장 기계 옆. 4분 57초. 포장/진열 섹션 메인.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_163132.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">트레이 담기/진공포장</div>
+    <div class="meta">2:53 · Q:A</div>
+    <div class="desc">삼겹살 슬라이스 알루미늄 트레이 담아 포장 기계 옆. 4분 57초. 포장/진열 섹션 메인.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251210_213907.mp4&quot;, &quot;q&quot;: &quot;A&quot;, &quot;d&quot;: &quot;0:01&quot;, &quot;a&quot;: &quot;진열대 촬영&quot;, &quot;t&quot;: &quot;매장 냉장 진열대 실사 - 보쌈용 삼겹살 트레이 + 가격 라벨. 52초. 최종 진열 목표 레퍼런스.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251210_213907.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">진열대 촬영</div>
+    <div class="meta">0:01 · Q:A</div>
+    <div class="desc">매장 냉장 진열대 실사 - 보쌈용 삼겹살 트레이 + 가격 라벨. 52초. 최종 진열 목표 레퍼런스.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_141553.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:35&quot;, &quot;a&quot;: &quot;진공 포장&quot;, &quot;t&quot;: &quot;포장지에 쌓인 고기 + 포장 기계. 2분 7초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_141553.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">진공 포장</div>
+    <div class="meta">1:35 · Q:B</div>
+    <div class="desc">포장지에 쌓인 고기 + 포장 기계. 2분 7초.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_142208.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;1:32&quot;, &quot;a&quot;: &quot;완제품 진열 샘플&quot;, &quot;t&quot;: &quot;삼겹살 포장 완제품 트레이 + 분홍 랩 슬라이스 묶음. 진열대 레퍼런스. 2분 37초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_142208.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">완제품 진열 샘플</div>
+    <div class="meta">1:32 · Q:B</div>
+    <div class="desc">삼겹살 포장 완제품 트레이 + 분홍 랩 슬라이스 묶음. 진열대 레퍼런스. 2분 37초.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_145139.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:49&quot;, &quot;a&quot;: &quot;진공 포장 완성&quot;, &quot;t&quot;: &quot;진공 팩 + 트레이 완제품. 상품 라벨 부착. 1분 8초. 진열 레퍼런스.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_145139.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">진공 포장 완성</div>
+    <div class="meta">0:49 · Q:B</div>
+    <div class="desc">진공 팩 + 트레이 완제품. 상품 라벨 부착. 1분 8초. 진열 레퍼런스.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_150930.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:38&quot;, &quot;a&quot;: &quot;샤브 진공 포장&quot;, &quot;t&quot;: &quot;샤브 슬라이스 진공 포장 완성품 + 작업 잔여물. 1분 13초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_150930.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">샤브 진공 포장</div>
+    <div class="meta">0:38 · Q:B</div>
+    <div class="desc">샤브 슬라이스 진공 포장 완성품 + 작업 잔여물. 1분 13초.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_142235.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:29&quot;, &quot;a&quot;: &quot;완제품 포장&quot;, &quot;t&quot;: &quot;작은 트레이에 분홍 슬라이스 + 면장갑. 7분 56초. 슬라이스 포장 과정.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20251211_142235.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">완제품 포장</div>
+    <div class="meta">0:29 · Q:B</div>
+    <div class="desc">작은 트레이에 분홍 슬라이스 + 면장갑. 7분 56초. 슬라이스 포장 과정.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_135323.mp4&quot;, &quot;q&quot;: &quot;B&quot;, &quot;d&quot;: &quot;0:07&quot;, &quot;a&quot;: &quot;완제품 포장 레퍼런스&quot;, &quot;t&quot;: &quot;검정 바코드 라벨 붙은 삼겹살 완제품 패키지 클로즈업. 진열 배치도/완성 상태 레퍼런스용. 12초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="clips_web/posters/20260331_135323.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">완제품 포장 레퍼런스</div>
+    <div class="meta">0:07 · Q:B</div>
+    <div class="desc">검정 바코드 라벨 붙은 삼겹살 완제품 패키지 클로즈업. 진열 배치도/완성 상태 레퍼런스용. 12초.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251211_141028.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:33&quot;, &quot;a&quot;: &quot;포장지 세팅&quot;, &quot;t&quot;: &quot;포장기에 비닐 롤 세팅. 1분 50초. 포장 준비.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20251211_141028_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">포장지 세팅</div>
+    <div class="meta">0:33 · Q:C</div>
+    <div class="desc">포장기에 비닐 롤 세팅. 1분 50초. 포장 준비.</div>
+  </div>
+</div></div></section><section class="group supporting-group" data-key="safety"><h2>🧼 Chapter 5 — 안전 / 위생</h2><div class="grid">
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20251130_011949.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:25&quot;, &quot;a&quot;: &quot;외부 영상 녹화&quot;, &quot;t&quot;: &quot;TV 화면 녹화 - 한국어 자막 \&quot;...이런 행동은 하지...\&quot; + 지방 제거 시연. 25초. 참조/교육 소스.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20251130_011949_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">외부 영상 녹화</div>
+    <div class="meta">0:25 · Q:C</div>
+    <div class="desc">TV 화면 녹화 - 한국어 자막 "...이런 행동은 하지..." + 지방 제거 시연. 25초. 참조/교육 소스.</div>
+  </div>
+</div></div></section><section class="group supporting-group" data-key="closing"><h2>🌙 Chapter 8 — 마감</h2><div class="grid">
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260402_143412.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;4:12&quot;, &quot;a&quot;: &quot;작업대 정리&quot;, &quot;t&quot;: &quot;칼로 작업대 닦기/긁기. 4분 14초. 마감 정리.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20260402_143412_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">작업대 정리</div>
+    <div class="meta">4:12 · Q:C</div>
+    <div class="desc">칼로 작업대 닦기/긁기. 4분 14초. 마감 정리.</div>
+  </div>
+</div>
+<div class="card supporting" data-clips="[{&quot;f&quot;: &quot;20260331_165938.mp4&quot;, &quot;q&quot;: &quot;C&quot;, &quot;d&quot;: &quot;0:12&quot;, &quot;a&quot;: &quot;작업 마감 정리&quot;, &quot;t&quot;: &quot;빈 알루미늄 트레이 + 칼 + 핏자국 장갑. 작업 종료 정리. 21초.&quot;}]" onclick="openPlayer(this)">
+  <div class="poster"><img src="thumbs/20260331_165938_50.jpg" loading="lazy" alt=""></div>
+  <div class="info">
+    <div class="name-kr">작업 마감 정리</div>
+    <div class="meta">0:12 · Q:C</div>
+    <div class="desc">빈 알루미늄 트레이 + 칼 + 핏자국 장갑. 작업 종료 정리. 21초.</div>
+  </div>
+</div></div></section>
+</main>
+
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closePlayer()">
+  <div class="modal">
+    <div class="modal-header">
+      <div id="modal-title">영상</div>
+      <button class="modal-close" onclick="closePlayer()">×</button>
+    </div>
+    <div class="modal-body">
+      <video id="player" controls preload="metadata"></video>
+      <div class="clip-tabs" id="clip-tabs"></div>
+      <div class="clip-info" id="clip-info"></div>
+    </div>
+  </div>
+</div>
+
+<div class="qr-hint">💡 Tip: 각 카드 클릭 → 영상 재생. 상단 필터로 분류 탐색.</div>
+
+<script>
+const modalBg = document.getElementById('modal-bg');
+const player = document.getElementById('player');
+const modalTitle = document.getElementById('modal-title');
+const clipTabs = document.getElementById('clip-tabs');
+const clipInfo = document.getElementById('clip-info');
+
+let currentLang = 'KR';
+let currentCard = null;
+
+function narratedUrl(ch, idx, lang) {
+  return `narrated/ch${ch}_${String(idx).padStart(2,'0')}_${lang}.mp4`;
+}
+
+async function tryNarrated(url) {
+  try {
+    const r = await fetch(url, {method: 'HEAD'});
+    return r.ok;
+  } catch(e) { return false; }
+}
+
+async function playForCard(card, clipIndex=0) {
+  const clips = JSON.parse(card.dataset.clips);
+  const ch = card.dataset.chapter;
+  const idx = card.dataset.idx;
+
+  if (currentLang !== 'ORIG' && ch && idx) {
+    const url = narratedUrl(ch, idx, currentLang);
+    if (await tryNarrated(url)) {
+      player.src = url;
+      clipInfo.innerHTML = `
+        <div><strong>🎙️ AI 내레이션:</strong> ${{KR:'한국어',EN:'English',ES:'Español'}[currentLang]}</div>
+        <div><strong>파일:</strong> ${url.split('/').pop()}</div>
+        <div style="color:#8cc">원본 참조: ${clips[clipIndex].f} · ${clips[clipIndex].d}</div>
+        <div><strong>작업:</strong> ${clips[clipIndex].a || ''}</div>
+        <div><strong>설명:</strong> ${clips[clipIndex].t || ''}</div>
+      `;
+      player.load();
+      player.play().catch(()=>{});
+      return;
+    }
+  }
+  // Fallback: original clip
+  const c = clips[clipIndex];
+  if (!c) return;
+  player.src = 'clips_web/' + c.f;
+  clipInfo.innerHTML = `
+    <div><strong>📹 원본 클립</strong></div>
+    <div><strong>파일:</strong> ${c.f}</div>
+    <div><strong>길이:</strong> ${c.d} · <strong>품질:</strong> ${c.q}</div>
+    <div><strong>작업:</strong> ${c.a || ''}</div>
+    <div><strong>설명:</strong> ${c.t || ''}</div>
+  `;
+  player.load();
+  player.play().catch(()=>{});
+}
+
+function openPlayer(card) {
+  currentCard = card;
+  const clips = JSON.parse(card.dataset.clips);
+  const name = card.querySelector('.name-kr').textContent;
+  const nameEn = (card.querySelector('.name-en')||{}).textContent || '';
+  modalTitle.textContent = name + (nameEn?'  —  ' + nameEn:'');
+  clipTabs.innerHTML = '';
+  clips.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'clip-tab' + (i === 0 ? ' active' : '');
+    btn.textContent = `${i+1}. ${c.d} · Q:${c.q}`;
+    btn.onclick = () => {
+      clipTabs.querySelectorAll('.clip-tab').forEach(t=>t.classList.remove('active'));
+      btn.classList.add('active');
+      playForCard(card, i);
+    };
+    clipTabs.appendChild(btn);
+  });
+  if (clips.length > 0) playForCard(card, 0);
+  modalBg.classList.add('active');
+}
+
+// Language toggle
+document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.lang-btn').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  currentLang = b.dataset.lang;
+  if (currentCard && modalBg.classList.contains('active')) {
+    playForCard(currentCard, 0);
+  }
+}));
+
+function closePlayer() {
+  modalBg.classList.remove('active');
+  player.pause();
+  player.src = '';
+}
+
+// Filters
+const searchBox = document.getElementById('search');
+const filterBtns = document.querySelectorAll('.filter-btn');
+let activeFilter = 'all';
+
+function applyFilter() {
+  const q = searchBox.value.trim().toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c => {
+    let show = true;
+    // Filter
+    if (activeFilter === 'bestseller') show = c.dataset.bestseller === '1';
+    else if (activeFilter === 'premium') show = c.dataset.premium === '1';
+    else if (activeFilter === 'pork') show = (c.dataset.species||'').includes('돼지');
+    else if (activeFilter === 'beef') show = (c.dataset.species||'').includes('소');
+    else if (activeFilter === 'has-video') show = c.dataset.hasCoverage === '1';
+    else if (activeFilter === 'no-video') show = c.dataset.hasCoverage === '0';
+    // Search
+    if (show && q) {
+      const txt = c.textContent.toLowerCase();
+      show = txt.includes(q);
+    }
+    c.style.display = show ? '' : 'none';
+  });
+  // Hide empty groups
+  document.querySelectorAll('.group').forEach(g => {
+    const visible = [...g.querySelectorAll('.card')].some(c => c.style.display !== 'none');
+    g.style.display = visible ? '' : 'none';
+  });
+}
+
+filterBtns.forEach(b => b.addEventListener('click', () => {
+  filterBtns.forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  activeFilter = b.dataset.filter;
+  applyFilter();
+}));
+searchBox.addEventListener('input', applyFilter);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePlayer();
+});
+</script>
+</body></html>

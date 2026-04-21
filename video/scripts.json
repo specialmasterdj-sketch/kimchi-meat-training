@@ -1,0 +1,786 @@
+{
+  "chapter2": {
+    "1": {
+      "idx": 1,
+      "name_en": "PORK BELLY SAMGYUPSAL (SKIN ON)",
+      "plu": "9207",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK BELLY SAMGYUPSAL (SKIN ON), PLU 9207번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 1센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY SAMGYUPSAL (SKIN ON), PLU 9207. Premium pork belly. Cut: machine clean cut, thickness 1 centimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY SAMGYUPSAL (SKIN ON), PLU 9207. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 1 centimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "2": {
+      "idx": 2,
+      "name_en": "PORK BELLY SUYOOK (SKIN ON)",
+      "plu": "9921",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK BELLY SUYOOK (SKIN ON), PLU 9921번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 3센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY SUYOOK (SKIN ON), PLU 9921. Premium pork belly. Cut: machine clean cut, thickness 3 centimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY SUYOOK (SKIN ON), PLU 9921. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 3 centimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "3": {
+      "idx": 3,
+      "name_en": "PORK BELLY CROSS CUT (SKINLESS)",
+      "plu": "9923",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK BELLY CROSS CUT (SKINLESS), PLU 9923번. 프리미엄 돼지 삼겹살. 절단은 크로스 컷, 두께 4밀리미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY CROSS CUT (SKINLESS), PLU 9923. Premium pork belly. Cut: cross cut, thickness 4 millimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY CROSS CUT (SKINLESS), PLU 9923. Panceta de cerdo premium. Corte: corte cruzado, grosor 4 milimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "4": {
+      "idx": 4,
+      "name_en": "PORK BELLY ROLL (SKINLESS)",
+      "plu": "9303",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BELLY ROLL (SKINLESS), PLU 9303번. 프리미엄 돼지 삼겹살. 절단은 허니콤 컷, 두께 1.5센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY ROLL (SKINLESS), PLU 9303. Premium pork belly. Cut: honeycomb cut, thickness 1.5 centimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY ROLL (SKINLESS), PLU 9303. Panceta de cerdo premium. Corte: corte panal, grosor 1.5 centimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "5": {
+      "idx": 5,
+      "name_en": "PORK BELLY FLOWER CUT",
+      "plu": "",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK BELLY FLOWER CUT, PLU 해당없음번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 4밀리미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY FLOWER CUT, PLU 해당없음. Premium pork belly. Cut: machine clean cut, thickness 4 millimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY FLOWER CUT, PLU 해당없음. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 4 milimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "6": {
+      "idx": 6,
+      "name_en": "PORK BELLY FLAT (SKINLESS)",
+      "plu": "9207",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BELLY FLAT (SKINLESS), PLU 9207번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 1센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY FLAT (SKINLESS), PLU 9207. Premium pork belly. Cut: machine clean cut, thickness 1 centimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY FLAT (SKINLESS), PLU 9207. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 1 centimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "7": {
+      "idx": 7,
+      "name_en": "PORK BELLY HALF CUT",
+      "plu": "9304",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BELLY HALF CUT, PLU 9304번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 1.5/1센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY HALF CUT, PLU 9304. Premium pork belly. Cut: machine clean cut, thickness 1.5/1 centimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY HALF CUT, PLU 9304. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 1.5/1 centimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "8": {
+      "idx": 8,
+      "name_en": "PORK BELLY SUYOOK (SKINLESS)",
+      "plu": "9924",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BELLY SUYOOK (SKINLESS), PLU 9924번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 3센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY SUYOOK (SKINLESS), PLU 9924. Premium pork belly. Cut: machine clean cut, thickness 3 centimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY SUYOOK (SKINLESS), PLU 9924. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 3 centimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "9": {
+      "idx": 9,
+      "name_en": "PORK BELLY SHABU - FLAT",
+      "plu": "9922",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK BELLY SHABU - FLAT, PLU 9922번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 2밀리미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY SHABU - FLAT, PLU 9922. Premium pork belly. Cut: machine clean cut, thickness 2 millimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY SHABU - FLAT, PLU 9922. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 2 milimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "10": {
+      "idx": 10,
+      "name_en": "PORK BELLY SHABU - ROLL",
+      "plu": "9302",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BELLY SHABU - ROLL, PLU 9302번. 프리미엄 돼지 삼겹살. 절단은 머신 클린컷, 두께 2밀리미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 지방층 방향을 확인하고, 차가운 상태에서 절단하세요. 슬라이스 후 트레이에 나란히 정렬, 프리미엄 섹션 앞줄에 진열합니다.",
+        "EN": "PORK BELLY SHABU - ROLL, PLU 9302. Premium pork belly. Cut: machine clean cut, thickness 2 millimeter. All slices must be uniform for display quality. Check the fat layer direction and cut while cold. Arrange on a tray in rows. Display in the front row of the premium section.",
+        "ES": "PORK BELLY SHABU - ROLL, PLU 9302. Panceta de cerdo premium. Corte: corte limpio con maquina, grosor 2 milimetros. Todas las rebanadas deben ser uniformes para calidad en exhibicion. Verifique la direccion de la grasa y corte frio. Acomode en una bandeja en filas. Exhiba en la primera fila de la seccion premium."
+      }
+    },
+    "11": {
+      "idx": 11,
+      "name_en": "BONELESS PORK SHOULDER STEAK",
+      "plu": "9212",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BONELESS PORK SHOULDER STEAK, PLU 9212번. 돼지 목살 계열. 절단은 두껍게, 두께 1.5센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "BONELESS PORK SHOULDER STEAK, PLU 9212. Pork shoulder / loin category. Cut: thick cut, thickness 1.5 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "BONELESS PORK SHOULDER STEAK, PLU 9212. Categoria paleta / lomo de cerdo. Corte: corte grueso, grosor 1.5 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "12": {
+      "idx": 12,
+      "name_en": "SPECIAL PORK SHOULDER SET",
+      "plu": "9221",
+      "bestseller": true,
+      "scripts": {
+        "KR": "SPECIAL PORK SHOULDER SET, PLU 9221번. 돼지 목살 계열. 절단은 레귤러 허니, 두께 1.5센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "SPECIAL PORK SHOULDER SET, PLU 9221. Pork shoulder / loin category. Cut: regular honey, thickness 1.5 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "SPECIAL PORK SHOULDER SET, PLU 9221. Categoria paleta / lomo de cerdo. Corte: regular con miel, grosor 1.5 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "13": {
+      "idx": 13,
+      "name_en": "SPECIAL PORK SHOULDER & BELLY",
+      "plu": "9222",
+      "bestseller": false,
+      "scripts": {
+        "KR": "SPECIAL PORK SHOULDER & BELLY, PLU 9222번. 돼지 목살 계열. 절단은 레귤러 허니, 두께 1.5센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "SPECIAL PORK SHOULDER & BELLY, PLU 9222. Pork shoulder / loin category. Cut: regular honey, thickness 1.5 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "SPECIAL PORK SHOULDER & BELLY, PLU 9222. Categoria paleta / lomo de cerdo. Corte: regular con miel, grosor 1.5 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "14": {
+      "idx": 14,
+      "name_en": "MIXED PORK FOR SOUP",
+      "plu": "9206",
+      "bestseller": false,
+      "scripts": {
+        "KR": "MIXED PORK FOR SOUP, PLU 9206번. 돼지 목살 계열. 절단은 촙, 두께 2~3센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "MIXED PORK FOR SOUP, PLU 9206. Pork shoulder / loin category. Cut: chop, thickness 2~3 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "MIXED PORK FOR SOUP, PLU 9206. Categoria paleta / lomo de cerdo. Corte: picado, grosor 2~3 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "15": {
+      "idx": 15,
+      "name_en": "PORK GALBI / HONEYCOMB",
+      "plu": "9220",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK GALBI / HONEYCOMB, PLU 9220번. 돼지 목살 계열. 절단은 허니콤 컷, 두께 1.5센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK GALBI / HONEYCOMB, PLU 9220. Pork shoulder / loin category. Cut: honeycomb cut, thickness 1.5 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK GALBI / HONEYCOMB, PLU 9220. Categoria paleta / lomo de cerdo. Corte: corte panal, grosor 1.5 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "16": {
+      "idx": 16,
+      "name_en": "PORK SHOULDER SHABU",
+      "plu": "9313",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK SHOULDER SHABU, PLU 9313번. 돼지 목살 계열. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK SHOULDER SHABU, PLU 9313. Pork shoulder / loin category. Cut: machine clean cut, thickness 2 millimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK SHOULDER SHABU, PLU 9313. Categoria paleta / lomo de cerdo. Corte: corte limpio con maquina, grosor 2 milimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "17": {
+      "idx": 17,
+      "name_en": "PORK SHANK STEAK (BONE IN)",
+      "plu": "9230",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK SHANK STEAK (BONE IN), PLU 9230번. 돼지 목살 계열. 절단은 머신 클린컷, 두께 1.5센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK SHANK STEAK (BONE IN), PLU 9230. Pork shoulder / loin category. Cut: machine clean cut, thickness 1.5 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK SHANK STEAK (BONE IN), PLU 9230. Categoria paleta / lomo de cerdo. Corte: corte limpio con maquina, grosor 1.5 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "18": {
+      "idx": 18,
+      "name_en": "PORK JOWL - HANGJEONG (항정살)",
+      "plu": "9158",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK JOWL - HANGJEONG (항정살), PLU 9158번. 돼지 목살 계열. 절단은 레귤러, 두께 1센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK JOWL - HANGJEONG (항정살), PLU 9158. Pork shoulder / loin category. Cut: regular, thickness 1 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK JOWL - HANGJEONG (항정살), PLU 9158. Categoria paleta / lomo de cerdo. Corte: regular, grosor 1 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "19": {
+      "idx": 19,
+      "name_en": "PORK JOWL - MARBLING",
+      "plu": "9159",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK JOWL - MARBLING, PLU 9159번. 돼지 목살 계열. 절단은 레귤러 커브, 두께 0.5밀리미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK JOWL - MARBLING, PLU 9159. Pork shoulder / loin category. Cut: regular curve, thickness 0.5 millimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK JOWL - MARBLING, PLU 9159. Categoria paleta / lomo de cerdo. Corte: regular curvo, grosor 0.5 milimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "20": {
+      "idx": 20,
+      "name_en": "SPECIAL SET - PORK JOWL",
+      "plu": "9160",
+      "bestseller": false,
+      "scripts": {
+        "KR": "SPECIAL SET - PORK JOWL, PLU 9160번. 돼지 목살 계열. 절단은 어소트, 두께 0.5밀리미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "SPECIAL SET - PORK JOWL, PLU 9160. Pork shoulder / loin category. Cut: assorted, thickness 0.5 millimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "SPECIAL SET - PORK JOWL, PLU 9160. Categoria paleta / lomo de cerdo. Corte: variado, grosor 0.5 milimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "21": {
+      "idx": 21,
+      "name_en": "PORK LOIN BONELESS (KATSU)",
+      "plu": "9224",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK LOIN BONELESS (KATSU), PLU 9224번. 돼지 목살 계열. 절단은 카츠 컷, 두께 1.5센티미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK LOIN BONELESS (KATSU), PLU 9224. Pork shoulder / loin category. Cut: katsu cut, thickness 1.5 centimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK LOIN BONELESS (KATSU), PLU 9224. Categoria paleta / lomo de cerdo. Corte: corte katsu, grosor 1.5 centimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "22": {
+      "idx": 22,
+      "name_en": "PORK LOIN SHABU ROLL",
+      "plu": "9227",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK LOIN SHABU ROLL, PLU 9227번. 돼지 목살 계열. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "PORK LOIN SHABU ROLL, PLU 9227. Pork shoulder / loin category. Cut: machine clean cut, thickness 2 millimeter. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "PORK LOIN SHABU ROLL, PLU 9227. Categoria paleta / lomo de cerdo. Corte: corte limpio con maquina, grosor 2 milimetros. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "23": {
+      "idx": 23,
+      "name_en": "MIXED PORK GROUND",
+      "plu": "9915",
+      "bestseller": false,
+      "scripts": {
+        "KR": "MIXED PORK GROUND, PLU 9915번. 돼지 목살 계열. 절단은 다짐, 두께 GROUND. 마블링 방향에 수직으로 절단하면 연도가 좋아집니다. 뼈가 있는 경우 밴드쏘 사용. 크기 일정하게 정렬. 메인 섹션 중간 진열대에 배치합니다.",
+        "EN": "MIXED PORK GROUND, PLU 9915. Pork shoulder / loin category. Cut: ground, thickness GROUND. Cut perpendicular to the marbling grain for tenderness. Use band saw for bone-in cuts. Align sizes uniformly. Place in the middle of the main display case.",
+        "ES": "MIXED PORK GROUND, PLU 9915. Categoria paleta / lomo de cerdo. Corte: molido, grosor GROUND. Corte perpendicular al marmoleado para mayor terneza. Use sierra de banda para cortes con hueso. Alinee tamanos uniformes. Coloque en el centro del mostrador principal."
+      }
+    },
+    "24": {
+      "idx": 24,
+      "name_en": "PORK BABY BACK RIB CUT",
+      "plu": "9319",
+      "bestseller": true,
+      "scripts": {
+        "KR": "PORK BABY BACK RIB CUT, PLU 9319번. 돼지 갈비 및 뼈류. 절단은 클린컷, 크기 표준. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK BABY BACK RIB CUT, PLU 9319. Pork ribs and bones. Cut: clean cut, size standard. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK BABY BACK RIB CUT, PLU 9319. Costillas y huesos de cerdo. Corte: corte limpio, tamano estandar. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "25": {
+      "idx": 25,
+      "name_en": "PORK BABY BACK RIBS - CHAIN",
+      "plu": "9928",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BABY BACK RIBS - CHAIN, PLU 9928번. 돼지 갈비 및 뼈류. 절단은 머신 클린컷, 크기 3센티미터. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK BABY BACK RIBS - CHAIN, PLU 9928. Pork ribs and bones. Cut: machine clean cut, size 3 centimeter. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK BABY BACK RIBS - CHAIN, PLU 9928. Costillas y huesos de cerdo. Corte: corte limpio con maquina, tamano 3 centimetros. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "26": {
+      "idx": 26,
+      "name_en": "PORK BABY BACK RIBS - WHOLE",
+      "plu": "",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BABY BACK RIBS - WHOLE, PLU 해당없음번. 돼지 갈비 및 뼈류. 절단은 홀, 스킨 아웃, 크기 표준. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK BABY BACK RIBS - WHOLE, PLU 해당없음. Pork ribs and bones. Cut: whole, skin out, size standard. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK BABY BACK RIBS - WHOLE, PLU 해당없음. Costillas y huesos de cerdo. Corte: entero, sin piel, tamano estandar. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "27": {
+      "idx": 27,
+      "name_en": "PORK SPARE RIB CUT",
+      "plu": "9326",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK SPARE RIB CUT, PLU 9326번. 돼지 갈비 및 뼈류. 절단은 클린컷, 크기 표준. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK SPARE RIB CUT, PLU 9326. Pork ribs and bones. Cut: clean cut, size standard. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK SPARE RIB CUT, PLU 9326. Costillas y huesos de cerdo. Corte: corte limpio, tamano estandar. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "28": {
+      "idx": 28,
+      "name_en": "PORK NECK BONE",
+      "plu": "9311",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK NECK BONE, PLU 9311번. 돼지 갈비 및 뼈류. 절단은 머신 클린컷, 크기 5센티미터. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK NECK BONE, PLU 9311. Pork ribs and bones. Cut: machine clean cut, size 5 centimeter. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK NECK BONE, PLU 9311. Costillas y huesos de cerdo. Corte: corte limpio con maquina, tamano 5 centimetros. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "29": {
+      "idx": 29,
+      "name_en": "PORK FRONT FEET",
+      "plu": "9306",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK FRONT FEET, PLU 9306번. 돼지 갈비 및 뼈류. 절단은 머신 클린컷, 크기 5센티미터. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK FRONT FEET, PLU 9306. Pork ribs and bones. Cut: machine clean cut, size 5 centimeter. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK FRONT FEET, PLU 9306. Costillas y huesos de cerdo. Corte: corte limpio con maquina, tamano 5 centimetros. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "30": {
+      "idx": 30,
+      "name_en": "PORK HOCK",
+      "plu": "9316",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK HOCK, PLU 9316번. 돼지 갈비 및 뼈류. 절단은 머신 클린컷, 크기 WHOLE. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK HOCK, PLU 9316. Pork ribs and bones. Cut: machine clean cut, size WHOLE. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK HOCK, PLU 9316. Costillas y huesos de cerdo. Corte: corte limpio con maquina, tamano WHOLE. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "31": {
+      "idx": 31,
+      "name_en": "PORK BONE - FEMUR (SOUP)",
+      "plu": "9317",
+      "bestseller": false,
+      "scripts": {
+        "KR": "PORK BONE - FEMUR (SOUP), PLU 9317번. 돼지 갈비 및 뼈류. 절단은 머신 클린컷, 크기 5센티미터. 밴드쏘로 뼈 방향에 맞춰 깨끗하게 절단. 뼈 파편 제거 필수. 위생 장갑 교체. 탕용 포장지에 담아 하단 진열대에 배치합니다.",
+        "EN": "PORK BONE - FEMUR (SOUP), PLU 9317. Pork ribs and bones. Cut: machine clean cut, size 5 centimeter. Use band saw along the bone direction for clean cuts. Remove bone fragments. Change gloves. Package for soup stock and place on the bottom display row.",
+        "ES": "PORK BONE - FEMUR (SOUP), PLU 9317. Costillas y huesos de cerdo. Corte: corte limpio con maquina, tamano 5 centimetros. Use sierra de banda siguiendo direccion del hueso. Retire fragmentos. Cambie guantes. Empaque para caldo. Coloque en la fila inferior del mostrador."
+      }
+    },
+    "32": {
+      "idx": 32,
+      "name_en": "BEEF RIBEYE THIN - BULGOGI",
+      "plu": "9203",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF RIBEYE THIN - BULGOGI, PLU 9203번. 소고기 등심 또는 차돌박이. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF RIBEYE THIN - BULGOGI, PLU 9203. Beef ribeye or brisket. Cut: machine clean cut, thickness 2 millimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF RIBEYE THIN - BULGOGI, PLU 9203. Bife de lomo o pecho de res. Corte: corte limpio con maquina, grosor 2 milimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "33": {
+      "idx": 33,
+      "name_en": "BEEF RIBEYE SHABU",
+      "plu": "9106",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF RIBEYE SHABU, PLU 9106번. 소고기 등심 또는 차돌박이. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF RIBEYE SHABU, PLU 9106. Beef ribeye or brisket. Cut: machine clean cut, thickness 2 millimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF RIBEYE SHABU, PLU 9106. Bife de lomo o pecho de res. Corte: corte limpio con maquina, grosor 2 milimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "34": {
+      "idx": 34,
+      "name_en": "BEEF RIBEYE SAEWOO",
+      "plu": "9216",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF RIBEYE SAEWOO, PLU 9216번. 소고기 등심 또는 차돌박이. 절단은 새우 컷, 두께 표준. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF RIBEYE SAEWOO, PLU 9216. Beef ribeye or brisket. Cut: shrimp cut, thickness standard. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF RIBEYE SAEWOO, PLU 9216. Bife de lomo o pecho de res. Corte: corte camaron, grosor estandar. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "35": {
+      "idx": 35,
+      "name_en": "BEEF RIBEYE STEAK",
+      "plu": "9138",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF RIBEYE STEAK, PLU 9138번. 소고기 등심 또는 차돌박이. 절단은 스테이크 컷, 두께 1.5센티미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF RIBEYE STEAK, PLU 9138. Beef ribeye or brisket. Cut: steak cut, thickness 1.5 centimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF RIBEYE STEAK, PLU 9138. Bife de lomo o pecho de res. Corte: corte bistec, grosor 1.5 centimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "36": {
+      "idx": 36,
+      "name_en": "SPECIAL BEEF SET",
+      "plu": "9171",
+      "bestseller": true,
+      "scripts": {
+        "KR": "SPECIAL BEEF SET, PLU 9171번. 소고기 등심 또는 차돌박이. 절단은 어소트, 두께 0.5센티미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "SPECIAL BEEF SET, PLU 9171. Beef ribeye or brisket. Cut: assorted, thickness 0.5 centimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "SPECIAL BEEF SET, PLU 9171. Bife de lomo o pecho de res. Corte: variado, grosor 0.5 centimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "37": {
+      "idx": 37,
+      "name_en": "BEEF BRISKET SHABU (FLAT)",
+      "plu": "9162",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF BRISKET SHABU (FLAT), PLU 9162번. 소고기 등심 또는 차돌박이. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF BRISKET SHABU (FLAT), PLU 9162. Beef ribeye or brisket. Cut: machine clean cut, thickness 2 millimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF BRISKET SHABU (FLAT), PLU 9162. Bife de lomo o pecho de res. Corte: corte limpio con maquina, grosor 2 milimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "38": {
+      "idx": 38,
+      "name_en": "BEEF BRISKET SHABU (ROLL)",
+      "plu": "9163",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF BRISKET SHABU (ROLL), PLU 9163번. 소고기 등심 또는 차돌박이. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF BRISKET SHABU (ROLL), PLU 9163. Beef ribeye or brisket. Cut: machine clean cut, thickness 2 millimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF BRISKET SHABU (ROLL), PLU 9163. Bife de lomo o pecho de res. Corte: corte limpio con maquina, grosor 2 milimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "39": {
+      "idx": 39,
+      "name_en": "BEEF BRISKET STEAK",
+      "plu": "9164",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF BRISKET STEAK, PLU 9164번. 소고기 등심 또는 차돌박이. 절단은 스테이크 컷, 두께 1.5센티미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF BRISKET STEAK, PLU 9164. Beef ribeye or brisket. Cut: steak cut, thickness 1.5 centimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF BRISKET STEAK, PLU 9164. Bife de lomo o pecho de res. Corte: corte bistec, grosor 1.5 centimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "40": {
+      "idx": 40,
+      "name_en": "BEEF BRISKET WHOLE",
+      "plu": "9166",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF BRISKET WHOLE, PLU 9166번. 소고기 등심 또는 차돌박이. 절단은 홀, 두께 표준. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF BRISKET WHOLE, PLU 9166. Beef ribeye or brisket. Cut: whole, thickness standard. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF BRISKET WHOLE, PLU 9166. Bife de lomo o pecho de res. Corte: entero, grosor estandar. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "41": {
+      "idx": 41,
+      "name_en": "BEEF NAVEL SHABU",
+      "plu": "9127",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF NAVEL SHABU, PLU 9127번. 소고기 등심 또는 차돌박이. 절단은 머신 클린컷, 두께 2밀리미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF NAVEL SHABU, PLU 9127. Beef ribeye or brisket. Cut: machine clean cut, thickness 2 millimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF NAVEL SHABU, PLU 9127. Bife de lomo o pecho de res. Corte: corte limpio con maquina, grosor 2 milimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "42": {
+      "idx": 42,
+      "name_en": "BEEF NAVEL STEAK",
+      "plu": "9168",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF NAVEL STEAK, PLU 9168번. 소고기 등심 또는 차돌박이. 절단은 thick sliced, 두께 1.5센티미터. 마블링 품질이 가격을 결정합니다. 결 방향 확인 후 얇게 썰기. 차가운 상태 유지. 개별 포장 또는 트레이 정렬. 프리미엄 섹션 전면 배치.",
+        "EN": "BEEF NAVEL STEAK, PLU 9168. Beef ribeye or brisket. Cut: thick sliced, thickness 1.5 centimeter. Marbling quality sets the price. Check grain direction and slice thin. Keep cold throughout. Individual package or tray arrangement. Front-row premium section placement.",
+        "ES": "BEEF NAVEL STEAK, PLU 9168. Bife de lomo o pecho de res. Corte: thick sliced, grosor 1.5 centimetros. El marmoleado fija el precio. Verifique la fibra y rebane fino. Mantenga frio. Paquete individual o bandeja. Coloque en primera fila premium."
+      }
+    },
+    "43": {
+      "idx": 43,
+      "name_en": "BEEF CHUCK TOP BLADE STEAK",
+      "plu": "9153",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF CHUCK TOP BLADE STEAK, PLU 9153번. 소고기 목심, 우둔, 스커트 계열. 절단은 스테이크 컷, 두께 1.5센티미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF CHUCK TOP BLADE STEAK, PLU 9153. Beef chuck, eye round, skirt category. Cut: steak cut, thickness 1.5 centimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF CHUCK TOP BLADE STEAK, PLU 9153. Categoria aguja, mano de piedra, falda. Corte: corte bistec, grosor 1.5 centimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "44": {
+      "idx": 44,
+      "name_en": "BEEF CHUCK TOP BLADE SHABU",
+      "plu": "",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF CHUCK TOP BLADE SHABU, PLU 해당없음번. 소고기 목심, 우둔, 스커트 계열. 절단은 머신 클린컷, 두께 2밀리미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF CHUCK TOP BLADE SHABU, PLU 해당없음. Beef chuck, eye round, skirt category. Cut: machine clean cut, thickness 2 millimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF CHUCK TOP BLADE SHABU, PLU 해당없음. Categoria aguja, mano de piedra, falda. Corte: corte limpio con maquina, grosor 2 milimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "45": {
+      "idx": 45,
+      "name_en": "BEEF CHUCK FLAP TAIL (살치살)",
+      "plu": "9202",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF CHUCK FLAP TAIL (살치살), PLU 9202번. 소고기 목심, 우둔, 스커트 계열. 절단은 갈비살 컷, 두께 0.5센티미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF CHUCK FLAP TAIL (살치살), PLU 9202. Beef chuck, eye round, skirt category. Cut: galbisal cut, thickness 0.5 centimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF CHUCK FLAP TAIL (살치살), PLU 9202. Categoria aguja, mano de piedra, falda. Corte: corte galbisal, grosor 0.5 centimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "46": {
+      "idx": 46,
+      "name_en": "BEEF CHUCK FLAP STEAK",
+      "plu": "",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF CHUCK FLAP STEAK, PLU 해당없음번. 소고기 목심, 우둔, 스커트 계열. 절단은 스테이크 컷, 두께 1.5센티미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF CHUCK FLAP STEAK, PLU 해당없음. Beef chuck, eye round, skirt category. Cut: steak cut, thickness 1.5 centimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF CHUCK FLAP STEAK, PLU 해당없음. Categoria aguja, mano de piedra, falda. Corte: corte bistec, grosor 1.5 centimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "47": {
+      "idx": 47,
+      "name_en": "BEEF EYE ROUND STEAK",
+      "plu": "9170",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF EYE ROUND STEAK, PLU 9170번. 소고기 목심, 우둔, 스커트 계열. 절단은 스테이크 컷, 두께 1.5센티미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF EYE ROUND STEAK, PLU 9170. Beef chuck, eye round, skirt category. Cut: steak cut, thickness 1.5 centimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF EYE ROUND STEAK, PLU 9170. Categoria aguja, mano de piedra, falda. Corte: corte bistec, grosor 1.5 centimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "48": {
+      "idx": 48,
+      "name_en": "BEEF EYE ROUND SHABU",
+      "plu": "",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF EYE ROUND SHABU, PLU 해당없음번. 소고기 목심, 우둔, 스커트 계열. 절단은 머신 클린컷, 두께 2밀리미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF EYE ROUND SHABU, PLU 해당없음. Beef chuck, eye round, skirt category. Cut: machine clean cut, thickness 2 millimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF EYE ROUND SHABU, PLU 해당없음. Categoria aguja, mano de piedra, falda. Corte: corte limpio con maquina, grosor 2 milimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "49": {
+      "idx": 49,
+      "name_en": "BEEF SKIRT STEAK",
+      "plu": "9134",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF SKIRT STEAK, PLU 9134번. 소고기 목심, 우둔, 스커트 계열. 절단은 스테이크 컷, 두께 1.5센티미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF SKIRT STEAK, PLU 9134. Beef chuck, eye round, skirt category. Cut: steak cut, thickness 1.5 centimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF SKIRT STEAK, PLU 9134. Categoria aguja, mano de piedra, falda. Corte: corte bistec, grosor 1.5 centimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "50": {
+      "idx": 50,
+      "name_en": "BEEF SKIRT SHABU",
+      "plu": "",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF SKIRT SHABU, PLU 해당없음번. 소고기 목심, 우둔, 스커트 계열. 절단은 머신 클린컷, 두께 2밀리미터. 힘줄과 결을 확인하고 결 반대 방향으로 절단. 스테이크는 1.5cm, 샤브는 2mm. 스테이크는 단품 포장, 샤브는 롤 형태로 트레이에 담습니다.",
+        "EN": "BEEF SKIRT SHABU, PLU 해당없음. Beef chuck, eye round, skirt category. Cut: machine clean cut, thickness 2 millimeter. Check sinew and grain. Cut against the grain. Steak 1.5cm, shabu 2mm. Steaks individually packaged, shabu rolled in trays.",
+        "ES": "BEEF SKIRT SHABU, PLU 해당없음. Categoria aguja, mano de piedra, falda. Corte: corte limpio con maquina, grosor 2 milimetros. Verifique tendones y fibra. Corte contra la fibra. Bistec 1.5cm, shabu 2mm. Bistec empacado individual, shabu en rollo en bandeja."
+      }
+    },
+    "51": {
+      "idx": 51,
+      "name_en": "BEEF SHORT RIB 3-BONE (LA GALBI)",
+      "plu": "9205",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF SHORT RIB 3-BONE (LA GALBI), PLU 9205번. LA갈비 또는 탕류 뼈. 절단은 머신 클린컷, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF SHORT RIB 3-BONE (LA GALBI), PLU 9205. LA galbi or soup bones. Cut: machine clean cut, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF SHORT RIB 3-BONE (LA GALBI), PLU 9205. Costilla LA o huesos para caldo. Corte: corte limpio con maquina, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "52": {
+      "idx": 52,
+      "name_en": "BEEF SHORT RIB BONE (SOUP)",
+      "plu": "9156",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF SHORT RIB BONE (SOUP), PLU 9156번. LA갈비 또는 탕류 뼈. 절단은 머신 클린컷, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF SHORT RIB BONE (SOUP), PLU 9156. LA galbi or soup bones. Cut: machine clean cut, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF SHORT RIB BONE (SOUP), PLU 9156. Costilla LA o huesos para caldo. Corte: corte limpio con maquina, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "53": {
+      "idx": 53,
+      "name_en": "BONELESS BEEF SHORT RIB (갈비살)",
+      "plu": "9215",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BONELESS BEEF SHORT RIB (갈비살), PLU 9215번. LA갈비 또는 탕류 뼈. 절단은 3-4본 미트, 두께 0.5센티미터. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BONELESS BEEF SHORT RIB (갈비살), PLU 9215. LA galbi or soup bones. Cut: 3 to 4 bone meat, thickness 0.5 centimeter. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BONELESS BEEF SHORT RIB (갈비살), PLU 9215. Costilla LA o huesos para caldo. Corte: 3 a 4 huesos con carne, grosor 0.5 centimetros. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "54": {
+      "idx": 54,
+      "name_en": "BEEF SHORT RIB FOR STEW",
+      "plu": "9149",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF SHORT RIB FOR STEW, PLU 9149번. LA갈비 또는 탕류 뼈. 절단은 머신 클린컷, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF SHORT RIB FOR STEW, PLU 9149. LA galbi or soup bones. Cut: machine clean cut, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF SHORT RIB FOR STEW, PLU 9149. Costilla LA o huesos para caldo. Corte: corte limpio con maquina, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "55": {
+      "idx": 55,
+      "name_en": "BEEF BACK RIB",
+      "plu": "9167",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF BACK RIB, PLU 9167번. LA갈비 또는 탕류 뼈. 절단은 표준, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF BACK RIB, PLU 9167. LA galbi or soup bones. Cut: standard, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF BACK RIB, PLU 9167. Costilla LA o huesos para caldo. Corte: estandar, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "56": {
+      "idx": 56,
+      "name_en": "BEEF CHUCK SHORT RIB W/BONE",
+      "plu": "",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF CHUCK SHORT RIB W/BONE, PLU 해당없음번. LA갈비 또는 탕류 뼈. 절단은 4본, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF CHUCK SHORT RIB W/BONE, PLU 해당없음. LA galbi or soup bones. Cut: 4 bones, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF CHUCK SHORT RIB W/BONE, PLU 해당없음. Costilla LA o huesos para caldo. Corte: 4 huesos, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "57": {
+      "idx": 57,
+      "name_en": "BEEF CHUCK SHORT RIB (STEW)",
+      "plu": "9161",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF CHUCK SHORT RIB (STEW), PLU 9161번. LA갈비 또는 탕류 뼈. 절단은 머신 클린컷, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF CHUCK SHORT RIB (STEW), PLU 9161. LA galbi or soup bones. Cut: machine clean cut, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF CHUCK SHORT RIB (STEW), PLU 9161. Costilla LA o huesos para caldo. Corte: corte limpio con maquina, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "58": {
+      "idx": 58,
+      "name_en": "BEEF CHUCK SHORT RIB BONELESS",
+      "plu": "9219",
+      "bestseller": true,
+      "scripts": {
+        "KR": "BEEF CHUCK SHORT RIB BONELESS, PLU 9219번. LA갈비 또는 탕류 뼈. 절단은 4본, 두께 0.5센티미터. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF CHUCK SHORT RIB BONELESS, PLU 9219. LA galbi or soup bones. Cut: 4 bones, thickness 0.5 centimeter. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF CHUCK SHORT RIB BONELESS, PLU 9219. Costilla LA o huesos para caldo. Corte: 4 huesos, grosor 0.5 centimetros. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "59": {
+      "idx": 59,
+      "name_en": "BEEF GROUND",
+      "plu": "9914",
+      "bestseller": false,
+      "scripts": {
+        "KR": "BEEF GROUND, PLU 9914번. LA갈비 또는 탕류 뼈. 절단은 머신 다짐, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "BEEF GROUND, PLU 9914. LA galbi or soup bones. Cut: machine ground, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "BEEF GROUND, PLU 9914. Costilla LA o huesos para caldo. Corte: molido a maquina, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    },
+    "60": {
+      "idx": 60,
+      "name_en": "MIXED BEEF FOR SOUP",
+      "plu": "9137",
+      "bestseller": false,
+      "scripts": {
+        "KR": "MIXED BEEF FOR SOUP, PLU 9137번. LA갈비 또는 탕류 뼈. 절단은 핸드 스페셜, 두께 표준. LA갈비는 3-bone 기준, 뼈 두께 일정하게. 탕뼈는 5cm 기준. 뼈 파편 제거. LA갈비는 전면 진열, 뼈류는 하단 진열대.",
+        "EN": "MIXED BEEF FOR SOUP, PLU 9137. LA galbi or soup bones. Cut: hand special, thickness standard. LA galbi standard is 3-bone with uniform bone thickness. Soup bones at 5cm. Remove fragments. LA galbi at front display, bones on bottom row.",
+        "ES": "MIXED BEEF FOR SOUP, PLU 9137. Costilla LA o huesos para caldo. Corte: especial a mano, grosor estandar. Costilla LA estandar 3 huesos con grosor uniforme. Huesos de caldo a 5cm. Retire fragmentos. Costilla LA en exhibicion frontal, huesos en fila inferior."
+      }
+    }
+  },
+  "chapter3": {
+    "1": {
+      "idx": 1,
+      "name_en": "Hanger Steak, Cleaned",
+      "name_kr": "토시살",
+      "scripts": {
+        "KR": "토시살, Hanger Steak. 반드시 Peeled 또는 Denuded 상태로 받습니다. 막이 남아있으면 절대 수령 거부. 막 제거 후 결 방향 확인하고 두께 1.5센티미터로 스테이크 컷. 프라임 등급만 취급.",
+        "EN": "Hanger Steak, Toshi-sal. Receive only Peeled or Denuded cuts. Reject deliveries with membrane remaining. After membrane removal, check grain direction and cut 1.5 centimeter thick. Prime grade only.",
+        "ES": "Hanger Steak, Toshi-sal. Reciba solo cortes Peeled o Denuded. Rechace entregas con membrana. Tras remover la membrana, verifique fibra y corte 1.5 centimetros de grosor. Solo Prime grade."
+      }
+    },
+    "2": {
+      "idx": 2,
+      "name_en": "Shoulder Tender (Teres Major)",
+      "name_kr": "제비추리",
+      "scripts": {
+        "KR": "제비추리, Shoulder Tender 또는 Teres Major. 반드시 Whole 형태로만 받습니다. 이미 슬라이스된 상태는 수령 거부. 절단 시 가늘고 길게, 두께 1센티미터.",
+        "EN": "Shoulder Tender, Teres Major. Accept only Whole form. Reject pre-sliced deliveries. Cut thin and long, 1 centimeter thick.",
+        "ES": "Shoulder Tender, Teres Major. Acepte solo forma entera. Rechace rebanadas previas. Corte delgado y largo, 1 centimetro de grosor."
+      }
+    },
+    "3": {
+      "idx": 3,
+      "name_en": "Inside Skirt Steak, Peeled",
+      "name_kr": "안창살",
+      "scripts": {
+        "KR": "안창살, Inside Skirt Steak. 반드시 INSIDE만 받습니다. Outside Skirt는 완전히 다른 부위, 수령 거부. Peeled 상태 확인 필수.",
+        "EN": "Inside Skirt Steak. Receive only INSIDE skirt. Outside Skirt is a completely different cut — reject. Must be Peeled.",
+        "ES": "Inside Skirt Steak. Reciba solo INSIDE skirt. Outside Skirt es corte diferente — rechace. Debe estar Peeled."
+      }
+    },
+    "4": {
+      "idx": 4,
+      "name_en": "Beef Flap Meat (Sirloin Flap)",
+      "name_kr": "치마살",
+      "scripts": {
+        "KR": "치마살, Beef Flap Meat 또는 Sirloin Flap. Peeled 스펙 필수. 이 스펙 없으면 수율이 40퍼센트까지 손실. 결 확인 후 스테이크 컷.",
+        "EN": "Beef Flap Meat, Sirloin Flap. Peeled spec is required. Without it, yield loss reaches 40 percent. Check grain and steak cut.",
+        "ES": "Beef Flap Meat, Sirloin Flap. Peeled es obligatorio. Sin esto, perdida de rendimiento llega a 40 por ciento. Verifique fibra y corte bistec."
+      }
+    },
+    "5": {
+      "idx": 5,
+      "name_en": "Chuck Flap Tail",
+      "name_kr": "살치살",
+      "scripts": {
+        "KR": "살치살, Chuck Flap Tail. PRIME 등급만 취급. Choice 등급은 구이용 불가, 수령 거부. 얇은 갈비살 컷, 두께 0.5센티미터.",
+        "EN": "Chuck Flap Tail, Salchi-sal. Prime grade only. Choice grade is unfit for grilling — reject. Galbisal cut, 0.5 centimeter thick.",
+        "ES": "Chuck Flap Tail, Salchi-sal. Solo Prime grade. Choice grade no es apto para asar — rechace. Corte galbisal, 0.5 centimetros."
+      }
+    },
+    "6": {
+      "idx": 6,
+      "name_en": "Flat Iron (Top Blade)",
+      "name_kr": "부채살",
+      "scripts": {
+        "KR": "부채살, Flat Iron 또는 Top Blade. Shoulder Clod에서 분리되어야 합니다. 심줄 경계 확인 필수. 스테이크 1.5센티미터.",
+        "EN": "Flat Iron, Top Blade. Must be separated from Shoulder Clod. Verify clean seam. Steak cut 1.5 centimeter.",
+        "ES": "Flat Iron, Top Blade. Debe estar separado del Shoulder Clod. Verifique costura limpia. Bistec 1.5 centimetro."
+      }
+    },
+    "7": {
+      "idx": 7,
+      "name_en": "Rib Fingers (Intercostal)",
+      "name_kr": "늙간살",
+      "scripts": {
+        "KR": "늙간살, Rib Fingers 또는 Intercostal. Peeled 필수. 막과 뼈쪽 조직 완전 제거 확인. 얇고 긴 형태 유지.",
+        "EN": "Rib Fingers, Intercostal. Must be Peeled. Membrane and bone-side tissue fully removed. Keep thin and long shape.",
+        "ES": "Rib Fingers, Intercostal. Debe estar Peeled. Membrana y tejido del hueso completamente removidos. Mantenga forma delgada y larga."
+      }
+    },
+    "8": {
+      "idx": 8,
+      "name_en": "Short Plate (Beef Belly)",
+      "name_kr": "업진살",
+      "scripts": {
+        "KR": "업진살, Short Plate 또는 Beef Belly. Boneless와 Trimmed 두 스펙 모두 확인. 긴 직사각 형태 유지.",
+        "EN": "Short Plate, Beef Belly. Verify both Boneless and Trimmed specs. Keep long rectangular shape.",
+        "ES": "Short Plate, Beef Belly. Verifique ambas especificaciones: Boneless y Trimmed. Mantenga forma rectangular larga."
+      }
+    },
+    "9": {
+      "idx": 9,
+      "name_en": "Ribeye Cap (Spinalis)",
+      "name_kr": "새우살",
+      "scripts": {
+        "KR": "새우살, Ribeye Cap 또는 Spinalis. Deckle-off Spinalis만 취급. 최고 마진 품목. 원형 말기 또는 스테이크 컷.",
+        "EN": "Ribeye Cap, Spinalis. Deckle-off Spinalis only. Highest margin item. Cinnamon roll shape or steak cut.",
+        "ES": "Ribeye Cap, Spinalis. Solo Deckle-off Spinalis. Maximo margen. Forma de rollo o corte bistec."
+      }
+    },
+    "10": {
+      "idx": 10,
+      "name_en": "Ribeye Roll, Export Style",
+      "name_kr": "알등심",
+      "scripts": {
+        "KR": "알등심, Ribeye Roll, Export Style. Lip-off 필수. Lip-on은 과다 지방, 손실 크니 수령 거부. 스테이크 2센티미터.",
+        "EN": "Ribeye Roll, Export Style. Lip-off required. Lip-on means excess fat — reject. Steak 2 centimeter.",
+        "ES": "Ribeye Roll, Export Style. Lip-off obligatorio. Lip-on significa grasa excesiva — rechace. Bistec 2 centimetros."
+      }
+    },
+    "11": {
+      "idx": 11,
+      "name_en": "Eye of Round",
+      "name_kr": "홍두깨살",
+      "scripts": {
+        "KR": "홍두깨살, Eye of Round. Denuded 스펙 필수. 외부 지방 모두 제거 확인. 원형 말기 또는 얇은 슬라이스.",
+        "EN": "Eye of Round. Denuded spec required. All external fat removed. Round roll or thin slices.",
+        "ES": "Eye of Round. Denuded obligatorio. Grasa externa removida. Rollo redondo o rebanadas finas."
+      }
+    },
+    "12": {
+      "idx": 12,
+      "name_en": "Lifter Meat (Blade Meat)",
+      "name_kr": "꽃등심덧살",
+      "scripts": {
+        "KR": "꽃등심덧살, Lifter Meat 또는 Blade Meat. 주의: Ribeye Cap과 혼동 금지. 완전히 다른 부위, 가격도 다릅니다.",
+        "EN": "Lifter Meat, Blade Meat. Warning: do not confuse with Ribeye Cap. Completely different cut and price.",
+        "ES": "Lifter Meat, Blade Meat. Atencion: no confundir con Ribeye Cap. Corte y precio diferentes."
+      }
+    }
+  }
+}

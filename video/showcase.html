@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L2 쇼케이스 - 삼겹살 3국어 AI 내레이션</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, "Segoe UI", "Noto Sans KR", sans-serif;
+  background: #0a0a0d; color: #e8e8ec; margin: 0; padding: 20px;
+}
+h1 { font-size: 20px; margin: 0 0 4px; }
+.sub { color: #888; font-size: 13px; margin-bottom: 20px; }
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px; max-width: 1400px; margin: 0 auto;
+}
+.card {
+  background: #14141a; border: 1px solid #24242c; border-radius: 12px;
+  padding: 12px; display: flex; flex-direction: column;
+}
+.card h2 { font-size: 16px; margin: 0 0 8px; color: #fff; }
+.card video { width: 100%; border-radius: 8px; background: #000; aspect-ratio: 9/16; }
+.meta { font-size: 12px; color: #aaa; margin-top: 8px; line-height: 1.5; }
+.meta strong { color: #fff; }
+.nav {
+  max-width: 1400px; margin: 0 auto 16px; display: flex; gap: 8px; flex-wrap: wrap;
+}
+.nav a {
+  padding: 6px 12px; background: #1a1a22; color: #e8e8ec; text-decoration: none;
+  border: 1px solid #2a2a32; border-radius: 6px; font-size: 12px;
+}
+.nav a:hover { background: #2a2a32; }
+.note {
+  max-width: 1400px; margin: 20px auto 0; padding: 12px 16px;
+  background: #1a2a1a; border: 1px solid #3a5a3a; border-radius: 8px;
+  font-size: 13px; line-height: 1.6;
+}
+.note strong { color: #8cff8c; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="manual.html">← 메인 매뉴얼</a>
+  <a href="showcase.html" style="background:#2a4a2a;border-color:#4a7a4a;">L2 쇼케이스</a>
+  <a href="reshoot_guide_KOR.md">L3 재촬영 가이드</a>
+  <a href="README.md">README</a>
+</div>
+
+<h1>🔥 Level 2 AI 파이프라인 쇼케이스</h1>
+<div class="sub">
+  샘플 품목: <strong>#1 PORK BELLY SAMGYUPSAL (SKIN ON)</strong> · PLU 9207 · 베스트셀러 ⭐<br>
+  42초 클립 × 3개국어 AI 내레이션 · 원본 오디오 교체 · 상하단 정보 오버레이
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>🇰🇷 한국어</h2>
+    <video controls preload="metadata" src="showcase/showcase_samgyupsal_KOR.mp4"></video>
+    <div class="meta">
+      <strong>음성:</strong> ko-KR-SunHiNeural (여성·친근)<br>
+      <strong>대본:</strong> "돼지 삼겹살, 스킨 온, PLU 9207번. 프리미엄 돼지 삼겹살을 껍질이 있는 상태로 받습니다. 절단은 머신 클린컷, 두께는 정확히 1센티미터. 모든 조각이 균일해야 진열대에서 품질이 보입니다. 슬라이스 후 트레이에 나란히 정렬하고, 프리미엄 섹션 앞줄에 진열합니다."
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🇺🇸 English</h2>
+    <video controls preload="metadata" src="showcase/showcase_samgyupsal_ENG.mp4"></video>
+    <div class="meta">
+      <strong>Voice:</strong> en-US-JennyNeural (Female · Friendly)<br>
+      <strong>Script:</strong> "Pork Belly Samgyupsal, Skin On, PLU 9207. Receive premium pork belly with the skin intact. Cut using a machine clean cut, exactly one centimeter thick. All slices must be uniform for the display case to show quality. After slicing, arrange on a tray in rows, and display in the front row of the premium section."
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🇪🇸 Español (US Latino)</h2>
+    <video controls preload="metadata" src="showcase/showcase_samgyupsal_ESP.mp4"></video>
+    <div class="meta">
+      <strong>Voz:</strong> es-US-PalomaNeural (Mujer · Miami/US Latino)<br>
+      <strong>Guión:</strong> "Panceta de cerdo Samgyupsal, con piel, PLU 9207. Reciba la panceta premium con la piel intacta. Corte con máquina en corte limpio, exactamente un centímetro de grosor. Todas las rebanadas deben ser uniformes para que el mostrador muestre calidad. Después del corte, acomode en una bandeja en filas, y exhiba en la primera fila de la sección premium."
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  <strong>✓ 이 쇼케이스가 증명하는 것:</strong><br>
+  • Edge TTS (무료, API 키 불필요) + MEAT_OPS_MANUAL 스펙 기반 대본 → 3국어 동시 생성 가능<br>
+  • FFmpeg drawtext로 품목명/PLU/절단스펙 오버레이 자동 삽입<br>
+  • 원본 오디오(TV·잡담) 제거 + 깨끗한 교육용 내레이션 교체<br>
+  • <strong>72품목 × 3국어 = 216개 내레이션 영상 자동화 가능</strong><br>
+  <br>
+  <strong>예상 전면 적용 시간:</strong> 내레이션 대본 생성 2시간 (Claude) + TTS 합성 30분 + FFmpeg 인코딩 3~4시간 (CPU). 하룻밤이면 216개 완성.
+</div>
+
+</body></html>
